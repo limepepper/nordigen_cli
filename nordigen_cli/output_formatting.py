@@ -36,7 +36,7 @@ class Formatter():
             for tx in transactions["transactions"]["booked"]:
                 # if(format == "text"):
                 print("{}: {:>7} {} : {} {}".format(
-                    tx['valueDate'],
+                    tx['bookingDate'],
                     tx["transactionAmount"]["amount"],
                     tx["transactionAmount"]["currency"],
                     tx['transactionId'],

@@ -1,12 +1,12 @@
 
 import click
-import requests
 from apiclient import APIClient, HeaderAuthentication
 import json
 from os import environ
 import sys
 from flask import Flask, request
 import webbrowser
+import pycountry
 
 from nordigenclient import NordigenClient
 from output_formatting import formatter
@@ -18,7 +18,8 @@ if not token:
 
 
 @click.group()
-@click.option('--output', default="text", help='output format. one of json, text')
+@click.option('--output', default="text",
+              help='output format. one of json|text (will output json if no text formatter is available)')
 @click.pass_context
 def apis(ctx, output):
     """A CLI wrapper for Nordigen open banking APIs."""
@@ -39,6 +40,17 @@ app = Flask("redirect")
 # app.debug = True
 
 
+country_codes = [c.alpha_2 for c in list(pycountry.countries)]
+
+
+@apis.command("list-country-codes")
+@click.pass_context
+def list_banks(ctx):
+    """list ISO 3166 2-letter country codes"""
+    data = country_codes
+    print(json.dumps(data, indent=4))
+
+
 @apis.command("list-banks")
 @click.argument('country')
 @click.pass_context
@@ -50,10 +62,10 @@ def list_banks(ctx, country):
 
 
 @apis.command("show-bank")
-@click.argument('id')
-def list_banks(id):
+@click.argument('bank_id')
+def list_banks(bank_id):
     """show bank by id"""
-    data = client.show_bank(id)
+    data = client.show_bank(bank_id)
     print(json.dumps(data, indent=4))
 
 
@@ -89,13 +101,6 @@ def transactions(ctx, account_id):
     data = client.list_transactions(account_id)
     formatter.pr_transactions(data, ctx.obj['output'])
 
-    # for transaction in data['transactions']['booked']:
-    #     #print("{} : {}".format(transaction['id'], transaction['accounts']))
-    #     print(transaction['bookingDate'] + " " +
-    #           transaction['remittanceInformationUnstructured'])
-        # print("")
-    # print(json.dumps(transactions, indent=4))
-
 
 @apis.command("show-account-balance")
 @click.argument('id')
@@ -120,6 +125,14 @@ def show_account_detail(account_id):
 def list_agreements(user_id):
     """end user agreements"""
     data = client.list_agreements(user_id)
+    print(json.dumps(data, indent=4))
+
+
+@apis.command("show-agreement")
+@click.argument('agreement_id')
+def show_agreement(agreement_id):
+    """end user agreement information"""
+    data = client.show_agreement(agreement_id)
     print(json.dumps(data, indent=4))
 
 
@@ -159,9 +172,19 @@ def show_requisition_links(requisition_id, bank_id):
 @apis.command("create-approval")
 @click.argument('bank_id')
 @click.argument('user_id')
+@click.option('--max_historical_days',
+              type=int,
+              default=90,
+              help="""number of days of historical transactions to approve
+              access to. defaults to 90 days""")
 def create_approval(bank_id, user_id):
-    """create a bank approval, including agreement and requisition
-    present the approval user interface to the user via flask App"""
+    """create a bank approval, includes agreement and requisition.
+
+    present the approval user interface to the user via flask App
+    will open a browser to handle the open banking approval process
+
+
+    """
 
     # create a default agreement for 90 days access
     data = client.create_end_user_agreement(bank_id, user_id)
@@ -220,4 +243,5 @@ def after_request_func(response):
 
 
 if __name__ == '__main__':
+    # click.echo(click.style('More colors', fg=(255, 12, 128), bg=117))
     apis(obj={}, prog_name='nordctl')
