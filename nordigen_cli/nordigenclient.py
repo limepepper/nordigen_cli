@@ -34,7 +34,8 @@ class NordigenClient(APIClient):
                            user_id,
                            redirect="http://localhost:5000/redirect",
                            agreements=[],
-                           reference="ref_"+str(calendar.timegm(time.gmtime())),
+                           reference="ref_" +
+                           str(calendar.timegm(time.gmtime())),
                            user_language='EN'):
         url = "{}/requisitions/".format(base)
         data = {
@@ -57,9 +58,6 @@ class NordigenClient(APIClient):
         }
         return self.post(url, data=data).json()
 
-
-#  "https://ob.nordigen.com/api/requisitions/${id}/links/" \
-
     # agreements
 
     def list_endusers(self):
@@ -73,6 +71,10 @@ class NordigenClient(APIClient):
 
     def list_agreements(self, user_id):
         url = "{}/agreements/enduser/?enduser_id={}".format(base, user_id)
+        return self.get(url).json()
+
+    def show_agreement(self, agreement_id):
+        url = "{}/agreements/enduser/{}/".format(base, agreement_id)
         return self.get(url).json()
 
     def create_end_user_agreement(self, bank_id, enduser_id):
