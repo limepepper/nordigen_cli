@@ -1,5 +1,37 @@
 # a simple cli for nordigen open banking API
 
+### command overview
+
+    $ nordctl
+    Usage: nordctl [OPTIONS] COMMAND [ARGS]...
+
+      A CLI wrapper for Nordigen open banking APIs.
+
+    Options:
+      --output TEXT  output format. one of json|text (will output json if no text
+                    formatter is available)
+      --help         Show this message and exit.
+
+    Commands:
+      create-agreement           create an end user agreement (by bank ID and...
+      create-approval            create a bank approval, includes agreement...
+      create-requisition         create a bank requition by bank ID and user ID
+      delete-agreement           Delete agreement based on its id
+      delete-requisition         Delete requisition based on its uuid
+      list-account-transactions  List all transactions for account
+      list-agreements            end user agreements
+      list-banks                 list banks by country code, COUNTRY is 'GB',...
+      list-country-codes         list ISO 3166 2-letter country codes
+      list-endusers              list any enduser ids that are associated...
+      list-requisitions          List all the requisitions associated with...
+      show-account-balance       show balance for account
+      show-account-detail        show detail for account
+      show-agreement             end user agreement information
+      show-bank                  show bank details by id
+      show-requisition           show the details relating to a requisition
+      show-requisition-links     get approval links for requisition
+      test-approval
+
 ## You will first need to sign up with nordigen, and create a token:
 
 https://nordigen.com/en/
@@ -133,34 +165,3 @@ transactions:
 
 
 
-# Other commands
-
-    $ nordctl
-    Usage: nordctl [OPTIONS] COMMAND [ARGS]...
-
-      A CLI wrapper for Nordigen open banking APIs.
-
-    Options:
-      --output TEXT  output format. one of json|text (will output json if no text
-                    formatter is available)
-      --help         Show this message and exit.
-
-    Commands:
-      create-agreement           create an end user agreement (by bank ID and...
-      create-approval            create a bank approval, includes agreement...
-      create-requisition         create a bank requition by bank ID and user ID
-      delete-agreement           Delete agreement based on its id
-      delete-requisition         Delete requisition based on its uuid
-      list-account-transactions  List all transactions for account
-      list-agreements            end user agreements
-      list-banks                 list banks by country code, COUNTRY is 'GB',...
-      list-country-codes         list ISO 3166 2-letter country codes
-      list-endusers              list any enduser ids that are associated...
-      list-requisitions          List all the requisitions associated with...
-      show-account-balance       show balance for account
-      show-account-detail        show detail for account
-      show-agreement             end user agreement information
-      show-bank                  show bank details by id
-      show-requisition           show the details relating to a requisition
-      show-requisition-links     get approval links for requisition
-      test-approval
