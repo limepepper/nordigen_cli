@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+""" nordigen_cli - command line for nordigen API """
 
 import click
 from apiclient import APIClient, HeaderAuthentication
@@ -8,8 +10,8 @@ from flask import Flask, request
 import webbrowser
 import pycountry
 
-from nordigenclient import NordigenClient
-from output_formatting import formatter
+from .nordigenclient import NordigenClient
+from .output_formatting import formatter
 
 token = environ.get('NORDIGEN_TOKEN')
 if not token:
@@ -42,6 +44,7 @@ app = Flask("redirect")
 
 country_codes = [c.alpha_2 for c in list(pycountry.countries)]
 
+# country codes
 
 @apis.command("list-country-codes")
 @click.pass_context
@@ -50,8 +53,9 @@ def list_banks(ctx):
     data = country_codes
     print(json.dumps(data, indent=4))
 
+# banks
 
-@apis.command("list-banks")
+@apis.command("list-banks", no_args_is_help=True)
 @click.argument('country')
 @click.pass_context
 def list_banks(ctx, country):
@@ -64,61 +68,28 @@ def list_banks(ctx, country):
 @apis.command("show-bank")
 @click.argument('bank_id')
 def list_banks(bank_id):
-    """show bank by id"""
+    """
+      show bank details by id
+
+      list of bank id can be obtained by "nordctl list-banks <2-letter country code>"
+
+    """
     data = client.show_bank(bank_id)
     print(json.dumps(data, indent=4))
 
+# agreements
 
-@apis.command("list-requisitions")
-def requisitions():
-    """List all the requisitions associated with the token"""
-    data = client.list_requisitions()
-    # for requisition in requisitions['results']:
-    #   print("{} : {}".format(requisition['id'], requisition['accounts']))
+
+@apis.command("create-agreement")
+@click.argument('bank_id')
+@click.argument('user_id')
+def create_agreement(bank_id, user_id):
+    """create an end user agreement (by bank ID and user ID)"""
+
+    data = client.create_end_user_agreement(bank_id, user_id)
     print(json.dumps(data, indent=4))
-
-
-@apis.command("delete-requisition")
-@click.argument('id')
-def deleterequisition(id):
-    """Delete requisition based on its uuid"""
-    response = client.delete_requisitions(id)
-
-
-@apis.command("list-endusers")
-def list_endusers():
-    data = client.list_requisitions()["results"]
-    results = [d['enduser_id'] for d in data]
-    data = list(set(results))
-    print(json.dumps(data, indent=4))
-
-
-@apis.command("list-account-transactions")
-@click.argument('account_id')
-@click.pass_context
-def transactions(ctx, account_id):
-    """List all transactions for account"""
-    data = client.list_transactions(account_id)
-    formatter.pr_transactions(data, ctx.obj['output'])
-
-
-@apis.command("show-account-balance")
-@click.argument('id')
-def show_balance(id):
-    """show balance for account"""
-    response = client.show_balance(id)
-    data = json.loads(response.text)
-    print(json.dumps(data, indent=4))
-
-
-@apis.command("show-account-detail")
-@click.argument('account_id')
-def show_account_detail(account_id):
-    """show detail for account"""
-    response = client.show_account_detail(account_id)
-    data = json.loads(response.text)
-    print(json.dumps(data, indent=4))
-
+    agreement_id = data['id']
+    print("agreement id: {}".format(agreement_id))
 
 @apis.command("list-agreements")
 @click.argument('user_id')
@@ -142,6 +113,16 @@ def deleterequisition(agreement_id):
     """Delete agreement based on its id"""
     response = client.delete_agreement(agreement_id)
 
+# requisitions
+
+@apis.command("list-requisitions")
+def requisitions():
+    """List all the requisitions associated with the token"""
+    data = client.list_requisitions()
+    # for requisition in requisitions['results']:
+    #   print("{} : {}".format(requisition['id'], requisition['accounts']))
+    print(json.dumps(data, indent=4))
+
 
 @apis.command("create-requisition")
 @click.argument('bank_id')
@@ -160,6 +141,13 @@ def show_requisition(requisition_id):
     print(json.dumps(data, indent=4))
 
 
+@apis.command("delete-requisition")
+@click.argument('id')
+def deleterequisition(id):
+    """Delete requisition based on its uuid"""
+    response = client.delete_requisitions(id)
+
+
 @apis.command("show-requisition-links")
 @click.argument('requisition_id')
 @click.argument('bank_id')
@@ -168,6 +156,44 @@ def show_requisition_links(requisition_id, bank_id):
     data = client.show_requisition_links(requisition_id, bank_id)
     print(json.dumps(data, indent=4))
 
+# enduser
+
+@apis.command("list-endusers")
+def list_endusers():
+    data = client.list_requisitions()["results"]
+    results = [d['enduser_id'] for d in data]
+    data = list(set(results))
+    print(json.dumps(data, indent=4))
+
+# accounts
+
+@apis.command("show-account-detail")
+@click.argument('account_id')
+def show_account_detail(account_id):
+    """show detail for account"""
+    response = client.show_account_detail(account_id)
+    data = json.loads(response.text)
+    print(json.dumps(data, indent=4))
+
+@apis.command("list-account-transactions")
+@click.argument('account_id')
+@click.pass_context
+def transactions(ctx, account_id):
+    """List all transactions for account"""
+    data = client.list_transactions(account_id)
+    formatter.pr_transactions(data, ctx.obj['output'])
+
+
+@apis.command("show-account-balance")
+@click.argument('id')
+def show_balance(id):
+    """show balance for account"""
+    response = client.show_balance(id)
+    data = json.loads(response.text)
+    print(json.dumps(data, indent=4))
+
+# convenience wrapper for creating agreement, requisition, and displaying
+# approval links, and handle redirect back from open banking portal
 
 @apis.command("create-approval")
 @click.argument('bank_id')
@@ -241,6 +267,10 @@ def after_request_func(response):
     shutdown_func()
     return response
 
+
+def main():
+    """Main entry point - used for command line call"""
+    apis(obj={}, prog_name='nordctl')
 
 if __name__ == '__main__':
     # click.echo(click.style('More colors', fg=(255, 12, 128), bg=117))

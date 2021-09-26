@@ -1,5 +1,6 @@
-from setuptools import setup
 
+
+from setuptools import setup
 
 setup(
     name="nordigen_cli",
@@ -9,14 +10,18 @@ setup(
     ),
     license="MIT",
     url="https://github.com/konstantinstadler/country_converter",
-    author="Konstantin Stadler",
+    author="Tom McHodder",
     author_email="tom@limepepper.co.uk",
-    version=__version__,  # noqa
+    # version=__version__,  # noqa
+    version="0.1.0",
     packages=["nordigen_cli"],
     entry_points={
         "console_scripts": ["nordctl = nordigen_cli.nordigen_cli:main"]
     },
-    install_requires=["Flask >= 2.0.1"],
+    install_requires=[
+      "Flask >= 2.0.1",
+      "click >= 8.0.1",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
