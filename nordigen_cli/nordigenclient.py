@@ -19,6 +19,39 @@ class NordigenClient(APIClient):
         url = "{}/aspsps/{}/".format(base, id)
         return self.get(url).json()
 
+    # agreements
+
+    def create_end_user_agreement(self, bank_id, enduser_id):
+        url = "{}/agreements/enduser/".format(base)
+        data = {
+            "max_historical_days": "90",
+            "access_scope": [
+                "balances",
+                "details",
+                "transactions"
+            ],
+            "enduser_id": enduser_id,
+            "aspsp_id": bank_id
+        }
+        return self.post(url, data=data).json()
+
+    # def list_endusers(self):
+    #     url = "{}/agreements/enduser/".format(base)
+    #     return self.get(url).json()
+
+    def delete_agreement(self, agreement_id):
+        url = "{}/agreements/enduser/{}/".format(base, agreement_id)
+        print("deleting agreement with id: {}".format(url, agreement_id))
+        return self.delete(url)
+
+    def list_agreements(self, user_id):
+        url = "{}/agreements/enduser/?enduser_id={}".format(base, user_id)
+        return self.get(url).json()
+
+    def show_agreement(self, agreement_id):
+        url = "{}/agreements/enduser/{}/".format(base, agreement_id)
+        return self.get(url).json()
+
     # requisitions
 
     def list_requisitions(self):
@@ -54,39 +87,6 @@ class NordigenClient(APIClient):
     def show_requisition_links(self, requisition_id, bank_id):
         url = "{}/requisitions/{}/links/".format(base, requisition_id)
         data = {
-            "aspsp_id": bank_id
-        }
-        return self.post(url, data=data).json()
-
-    # agreements
-
-    def list_endusers(self):
-        url = "{}/agreements/enduser/".format(base)
-        return self.get(url).json()
-
-    def delete_agreement(self, agreement_id):
-        url = "{}/agreements/enduser/{}/".format(base, agreement_id)
-        print("deleting agreement with id: {}".format(url, agreement_id))
-        return self.delete(url)
-
-    def list_agreements(self, user_id):
-        url = "{}/agreements/enduser/?enduser_id={}".format(base, user_id)
-        return self.get(url).json()
-
-    def show_agreement(self, agreement_id):
-        url = "{}/agreements/enduser/{}/".format(base, agreement_id)
-        return self.get(url).json()
-
-    def create_end_user_agreement(self, bank_id, enduser_id):
-        url = "{}/agreements/enduser/".format(base)
-        data = {
-            "max_historical_days": "90",
-            "access_scope": [
-                "balances",
-                "details",
-                "transactions"
-            ],
-            "enduser_id": enduser_id,
             "aspsp_id": bank_id
         }
         return self.post(url, data=data).json()
