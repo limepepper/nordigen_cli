@@ -59,7 +59,7 @@ def list_banks(ctx):
 @click.argument('country')
 @click.pass_context
 def list_banks(ctx, country):
-    """list banks by country code, COUNTRY is 'GB', 'US' etc"""
+    """list banks by country code, COUNTRY is 'GB', 'FR' etc"""
     data = client.list_banks(country)
     # print(json.dumps(data, indent=4))
     formatter.pr_banks(data, ctx.obj['output'])
@@ -160,6 +160,7 @@ def show_requisition_links(requisition_id, bank_id):
 
 @apis.command("list-endusers")
 def list_endusers():
+    """ list any enduser ids that are associated with requisitions """
     data = client.list_requisitions()["results"]
     results = [d['enduser_id'] for d in data]
     data = list(set(results))
@@ -201,8 +202,7 @@ def show_balance(id):
 @click.option('--max_historical_days',
               type=int,
               default=90,
-              help="""number of days of historical transactions to approve
-              access to. defaults to 90 days""")
+              )
 def create_approval(bank_id, user_id):
     """create a bank approval, includes agreement and requisition.
 
@@ -248,6 +248,7 @@ def create_approval(bank_id, user_id):
     for account in data["accounts"]:
         print("account id: {}".format(account))
 
+# test routines
 
 @apis.command("test-approval")
 def test_approval():
