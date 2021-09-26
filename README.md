@@ -130,3 +130,37 @@ transactions:
     2021-09-25:   45.00 EUR : 2021092502698001-1 For the support of Restoration of the Republic foundation
     2021-09-25:  -15.00 EUR : 2021092502698005-1 PAYMENT Alderaan Coffe
     2021-09-25:  -15.00 EUR : 2021092502698002-1 PAYMENT Alderaan Coffe
+
+
+
+# Other commands
+
+    $ nordctl
+    Usage: nordctl [OPTIONS] COMMAND [ARGS]...
+
+      A CLI wrapper for Nordigen open banking APIs.
+
+    Options:
+      --output TEXT  output format. one of json|text (will output json if no text
+                    formatter is available)
+      --help         Show this message and exit.
+
+    Commands:
+      create-agreement           create an end user agreement (by bank ID and...
+      create-approval            create a bank approval, includes agreement...
+      create-requisition         create a bank requition by bank ID and user ID
+      delete-agreement           Delete agreement based on its id
+      delete-requisition         Delete requisition based on its uuid
+      list-account-transactions  List all transactions for account
+      list-agreements            end user agreements
+      list-banks                 list banks by country code, COUNTRY is 'GB',...
+      list-country-codes         list ISO 3166 2-letter country codes
+      list-endusers              list any enduser ids that are associated...
+      list-requisitions          List all the requisitions associated with...
+      show-account-balance       show balance for account
+      show-account-detail        show detail for account
+      show-agreement             end user agreement information
+      show-bank                  show bank details by id
+      show-requisition           show the details relating to a requisition
+      show-requisition-links     get approval links for requisition
+      test-approval
