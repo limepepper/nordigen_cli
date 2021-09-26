@@ -52,6 +52,23 @@ class NordigenClient(APIClient):
         url = "{}/agreements/enduser/{}/".format(base, agreement_id)
         return self.get(url).json()
 
+    def show_agreement_text(self, agreement_id):
+        url = "{}/agreements/enduser/{}/text/".format(base, agreement_id)
+        return self.get(url).json()
+
+    def accept_agreement(self, agreement_id, user_agent, ip_address):
+        url = f"{base}/agreements/enduser/{agreement_id}/accept/"
+        data = {
+            "user_agent": user_agent,
+            "ip_address": ip_address
+        }
+        return self.put(url, data=data).json()
+
+    # produces 404
+    def show_agreement_legal(self):
+        url = "{}/agreements/legal/latest/".format(base)
+        return self.get(url).json()
+
     # requisitions
 
     def list_requisitions(self):
@@ -91,18 +108,23 @@ class NordigenClient(APIClient):
         }
         return self.post(url, data=data).json()
 
-    # transactions
-
-    def list_transactions(self, id):
-        url = "{}/accounts/{}/transactions/".format(base, id)
-        return self.get(url).json()
-
     # accounts
 
-    def show_balance(self, id):
-        url = "{}/accounts/{}/balances/".format(base, id)
+    def show_account_metadata(self, id):
+        url = "{}/accounts/{}/".format(base, id)
         return self.get(url)
 
     def show_account_detail(self, id):
         url = "{}/accounts/{}/details/".format(base, id)
         return self.get(url)
+
+
+    def show_balance(self, id):
+        url = "{}/accounts/{}/balances/".format(base, id)
+        return self.get(url)
+
+    # account transactions
+
+    def list_transactions(self, id):
+        url = "{}/accounts/{}/transactions/".format(base, id)
+        return self.get(url).json()

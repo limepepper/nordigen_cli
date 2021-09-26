@@ -20,11 +20,21 @@ if not token:
 
 
 @click.group()
-@click.option('--output', default="text",
-              help='output format. one of json|text (will output json if no text formatter is available)')
+@click.option('--output',
+              type=click.Choice(['text', 'json']),
+              default="text",
+              help='output format. (will output json if no text formatter is available)')
 @click.pass_context
 def apis(ctx, output):
-    """A CLI wrapper for Nordigen open banking APIs."""
+    """
+
+    A CLI wrapper for Nordigen open banking APIs.
+
+    for help on arguments for each command use:
+
+    $ nordctl <command> --help
+
+    """
     ctx.ensure_object(dict)
     ctx.obj['output'] = output
 
@@ -46,14 +56,16 @@ country_codes = [c.alpha_2 for c in list(pycountry.countries)]
 
 # country codes
 
+
 @apis.command("list-country-codes")
 @click.pass_context
 def list_banks(ctx):
     """list ISO 3166 2-letter country codes"""
     data = country_codes
-    print(json.dumps(data, indent=4))
+    print(json.dumps(data))
 
 # banks
+
 
 @apis.command("list-banks", no_args_is_help=True)
 @click.argument('country')
@@ -91,11 +103,26 @@ def create_agreement(bank_id, user_id):
     agreement_id = data['id']
     print("agreement id: {}".format(agreement_id))
 
+
+@apis.command("accept-agreement")
+@click.argument('agreement_id')
+@click.argument('user_agent')
+@click.argument('ip_address')
+def accept_agreement(agreement_id, user_agent, ip_address):
+    """accept an end user agreement"""
+
+    data = client.accept_agreement(agreement_id, user_agent, ip_address)
+    print(json.dumps(data, indent=4))
+    agreement_id = data['id']
+    print("agreement id: {}".format(agreement_id))
+
+
 @apis.command("list-agreements")
 @click.argument('user_id')
 def list_agreements(user_id):
     """end user agreements"""
     data = client.list_agreements(user_id)
+    data = data["results"]
     print(json.dumps(data, indent=4))
 
 
@@ -107,6 +134,21 @@ def show_agreement(agreement_id):
     print(json.dumps(data, indent=4))
 
 
+@apis.command("show-agreement-text")
+@click.argument('agreement_id')
+def show_agreement(agreement_id):
+    """end user agreement textual information"""
+    data = client.show_agreement_text(agreement_id)
+    print(json.dumps(data, indent=4))
+
+# is referenced in docs, but produces 404 when queried
+# @apis.command("show-agreement-legal")
+# def show_agreement():
+#     """end user agreement legal information"""
+#     data = client.show_agreement_legal()
+#     print(json.dumps(data, indent=4))
+
+
 @apis.command("delete-agreement")
 @click.argument('agreement_id')
 def deleterequisition(agreement_id):
@@ -115,12 +157,21 @@ def deleterequisition(agreement_id):
 
 # requisitions
 
+
 @apis.command("list-requisitions")
-def requisitions():
+@click.option('--noagreement/--no-noagreement',
+              default=False,
+              help='limit to only requisitions with no agreement attached')
+def requisitions(noagreement):
     """List all the requisitions associated with the token"""
     data = client.list_requisitions()
     # for requisition in requisitions['results']:
     #   print("{} : {}".format(requisition['id'], requisition['accounts']))
+    if noagreement:
+        data = [d for d in data["results"] if not d["accounts"]]
+    else:
+        data = data["results"]
+
     print(json.dumps(data, indent=4))
 
 
@@ -158,6 +209,7 @@ def show_requisition_links(requisition_id, bank_id):
 
 # enduser
 
+
 @apis.command("list-endusers")
 def list_endusers():
     """ list any enduser ids that are associated with requisitions """
@@ -168,6 +220,16 @@ def list_endusers():
 
 # accounts
 
+
+@apis.command("show-account-metadata")
+@click.argument('account_id')
+def show_account_detail(account_id):
+    """show detail for account"""
+    response = client.show_account_metadata(account_id)
+    data = json.loads(response.text)
+    print(json.dumps(data, indent=4))
+
+
 @apis.command("show-account-detail")
 @click.argument('account_id')
 def show_account_detail(account_id):
@@ -175,14 +237,6 @@ def show_account_detail(account_id):
     response = client.show_account_detail(account_id)
     data = json.loads(response.text)
     print(json.dumps(data, indent=4))
-
-@apis.command("list-account-transactions")
-@click.argument('account_id')
-@click.pass_context
-def transactions(ctx, account_id):
-    """List all transactions for account"""
-    data = client.list_transactions(account_id)
-    formatter.pr_transactions(data, ctx.obj['output'])
 
 
 @apis.command("show-account-balance")
@@ -193,8 +247,18 @@ def show_balance(id):
     data = json.loads(response.text)
     print(json.dumps(data, indent=4))
 
+
+@apis.command("list-account-transactions")
+@click.argument('account_id')
+@click.pass_context
+def transactions(ctx, account_id):
+    """List all transactions for account"""
+    data = client.list_transactions(account_id)
+    formatter.pr_transactions(data, ctx.obj['output'])
+
 # convenience wrapper for creating agreement, requisition, and displaying
 # approval links, and handle redirect back from open banking portal
+
 
 @apis.command("create-approval")
 @click.argument('bank_id')
@@ -250,6 +314,7 @@ def create_approval(bank_id, user_id, max_historical_days):
 
 # test routines
 
+
 @apis.command("test-approval")
 def test_approval():
     app.run()
@@ -272,6 +337,7 @@ def after_request_func(response):
 def main():
     """Main entry point - used for command line call"""
     apis(obj={}, prog_name='nordctl')
+
 
 if __name__ == '__main__':
     # click.echo(click.style('More colors', fg=(255, 12, 128), bg=117))
