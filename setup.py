@@ -21,6 +21,7 @@ setup(
     install_requires=[
       "Flask >= 2.0.1",
       "click >= 8.0.1",
+      "api-client >= 1.3.1"
     ],
     classifiers=[
         "Programming Language :: Python :: 3.6",
