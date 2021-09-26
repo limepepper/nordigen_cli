@@ -21,10 +21,10 @@ class NordigenClient(APIClient):
 
     # agreements
 
-    def create_end_user_agreement(self, bank_id, enduser_id):
+    def create_end_user_agreement(self, bank_id, enduser_id, max_historical_days=90):
         url = "{}/agreements/enduser/".format(base)
         data = {
-            "max_historical_days": "90",
+            "max_historical_days": max_historical_days,
             "access_scope": [
                 "balances",
                 "details",

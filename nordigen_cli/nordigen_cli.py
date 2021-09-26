@@ -203,7 +203,7 @@ def show_balance(id):
               type=int,
               default=90,
               )
-def create_approval(bank_id, user_id):
+def create_approval(bank_id, user_id, max_historical_days):
     """create a bank approval, includes agreement and requisition.
 
     present the approval user interface to the user via flask App
