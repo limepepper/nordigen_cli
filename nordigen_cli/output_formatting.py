@@ -35,11 +35,20 @@ class Formatter():
         if(format == "text"):
             for tx in transactions["transactions"]["booked"]:
                 # if(format == "text"):
+
+                amount = tx["transactionAmount"]["amount"]
+                info = tx["remittanceInformationUnstructured"]
+
+                if "transactionId" in tx:
+                  trn_id = tx['transactionId']
+                else:
+                  trn_id = f"{tx['bookingDate']}-{amount}-{info}"
+
                 print("{}: {:>7} {} : {} {}".format(
                     tx['bookingDate'],
                     tx["transactionAmount"]["amount"],
                     tx["transactionAmount"]["currency"],
-                    tx['transactionId'],
+                    trn_id,
                     tx["remittanceInformationUnstructured"]
                 ))
 
