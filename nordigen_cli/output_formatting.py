@@ -44,7 +44,7 @@ class Formatter():
                 else:
                   trn_id = f"{tx['bookingDate']}-{amount}-{info}"
 
-                print("{}: {:>7} {} : {} {}".format(
+                print("{}: {:>7} {} : \"{}\" {}".format(
                     tx['bookingDate'],
                     tx["transactionAmount"]["amount"],
                     tx["transactionAmount"]["currency"],
