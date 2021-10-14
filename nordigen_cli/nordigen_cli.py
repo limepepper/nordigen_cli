@@ -95,10 +95,15 @@ def list_banks(bank_id):
 @apis.command("create-agreement")
 @click.argument('bank_id')
 @click.argument('user_id')
-def create_agreement(bank_id, user_id):
+@click.option('--max_historical_days',
+              type=int,
+              default=90,
+              )
+def create_agreement(bank_id, user_id, max_historical_days):
     """create an end user agreement (by bank ID and user ID)"""
 
-    data = client.create_end_user_agreement(bank_id, user_id)
+    data = client.create_end_user_agreement(
+        bank_id, user_id, max_historical_days)
     print(json.dumps(data, indent=4))
     agreement_id = data['id']
     print("agreement id: {}".format(agreement_id))
@@ -277,7 +282,8 @@ def create_approval(bank_id, user_id, max_historical_days):
     """
 
     # create a default agreement for 90 days access
-    data = client.create_end_user_agreement(bank_id, user_id)
+    data = client.create_end_user_agreement(
+        bank_id, user_id, max_historical_days)
     # print("agreement data")
     # print(json.dumps(data, indent=4))
     agreement_id = data['id']

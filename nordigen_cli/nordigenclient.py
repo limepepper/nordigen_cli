@@ -9,6 +9,9 @@ base = "https://ob.nordigen.com/api"
 
 class NordigenClient(APIClient):
 
+    def get_request_timeout(self):
+        return 300
+
     # banks
 
     def list_banks(self, code):
