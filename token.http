@@ -1,0 +1,25 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PyCharm
+
+### Send POST request with json body
+# @name get token
+POST {{api}}/token/new/
+Content-Type: application/json
+accept: application/json
+
+{
+  "secret_id": "{{id}}",
+  "secret_key": "{{key}}"
+}
+
+
+### Send POST request with json body
+# @name get token
+POST {{api}}/token/refresh/
+Content-Type: application/json
+accept: application/json
+
+{
+"refresh": "$REFRESH_TOKEN"
+}

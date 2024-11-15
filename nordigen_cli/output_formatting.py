@@ -1,20 +1,22 @@
-
 import json
 
 
-class Formatter():
+class Formatter:
 
     def pr_account(self):
         pass
 
     def pr_banks(self, banks, format):
 
-        for bank in banks:
-            if(format == "text"):
-                print("name: {:35}  id: {}".format(bank['name'], bank['id']))
+        print(type(banks))
+
+        if format == "text":
+            for bank in banks:
+                # print("name: {:35}  id: {}".format(bank["name"], bank["id"]))
+                print(f"{bank.name:35}  {bank.id=}")
                 # print("")
-            elif(format == "json"):
-                print(json.dumps(banks, indent=4))
+        elif format == "json":
+            print(json.dumps([bank.model_dump() for bank in banks], indent=4))
 
     """
     {
@@ -32,7 +34,7 @@ class Formatter():
 
     def pr_transactions(self, transactions, format):
 
-        if(format == "text"):
+        if format == "text":
             for tx in transactions["transactions"]["booked"]:
                 # if(format == "text"):
 
@@ -40,23 +42,25 @@ class Formatter():
                 info = tx["remittanceInformationUnstructured"]
 
                 if "transactionId" in tx:
-                  trn_id = tx['transactionId']
+                    trn_id = tx["transactionId"]
                 else:
-                  trn_id = f"{tx['bookingDate']}-{amount}-{info}"
+                    trn_id = f"{tx['bookingDate']}-{amount}-{info}"
 
-                print("{}: {:>7} {} : \"{}\" {}".format(
-                    tx['bookingDate'],
-                    tx["transactionAmount"]["amount"],
-                    tx["transactionAmount"]["currency"],
-                    trn_id,
-                    tx["remittanceInformationUnstructured"]
-                ))
+                print(
+                    '{}: {:>7} {} : "{}" {}'.format(
+                        tx["bookingDate"],
+                        tx["transactionAmount"]["amount"],
+                        tx["transactionAmount"]["currency"],
+                        trn_id,
+                        tx["remittanceInformationUnstructured"],
+                    )
+                )
 
-                    # print("remit infos: \"{}\"".format(
-                    # )
+                # print("remit infos: \"{}\"".format(
+                # )
                 #     # print("")
                 # elif(format == "json"):
-        elif(format == "json"):
+        elif format == "json":
             print(json.dumps(transactions["transactions"], indent=4))
 
 

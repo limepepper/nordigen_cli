@@ -1,3 +1,7 @@
+# don't include jetbrains http client env files
+http-client.private.env.json
+/local
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

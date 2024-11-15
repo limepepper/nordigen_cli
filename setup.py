@@ -1,5 +1,3 @@
-
-
 from setuptools import setup
 
 setup(
@@ -9,29 +7,28 @@ setup(
         "a Python package for interacting with nordigen API."
     ),
     license="MIT",
-    url="https://github.com/konstantinstadler/country_converter",
-    author="Tom McHodder",
+    url="https://github.com/limepepper/nordigen_cli",
+    author="Tom Hodder",
     author_email="tom@limepepper.co.uk",
     # version=__version__,  # noqa
     version="0.1.0",
     packages=["nordigen_cli"],
     entry_points={
-        "console_scripts": ["nordctl = nordigen_cli.nordigen_cli:main"]
+        "console_scripts": [
+            "nordctl = nordigen_cli.nordigen_cli:main",
+        ],
     },
     install_requires=[
-      "Flask >= 2.0.1",
-      "click >= 8.0.1",
-      "api-client >= 1.3.1",
-      "pycountry >= 20.7.3"
+        "Flask >= 2.0.1",
+        "click >= 8.0.1",
+        "api-client >= 1.3.1",
+        "pycountry >= 20.7.3",
     ],
     classifiers=[
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "Development Status :: 4 - Beta",
         "Environment :: Console",
         "Intended Audience :: End Users/Desktop",
         "Intended Audience :: Developers",
