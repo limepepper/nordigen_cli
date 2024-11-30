@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nordigen_cli.apiclient.base &mdash; Nordigen Cli 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Nordigen Cli
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Nordigen Cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nordigen_cli.apiclient.base</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nordigen_cli.apiclient.base</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span><span class="p">,</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="kn">from</span> <span class="nn">apiclient</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">APIClient</span><span class="p">,</span>
+    <span class="n">JsonResponseHandler</span><span class="p">,</span>
+    <span class="n">JsonRequestFormatter</span><span class="p">,</span>
+    <span class="n">NoAuthentication</span><span class="p">,</span>
+    <span class="n">endpoint</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">limepepper_utils.jwt.client</span> <span class="kn">import</span> <span class="n">TokenManager</span>
+<span class="kn">from</span> <span class="nn">nordigen_cli.apiclient.authentication</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RefreshableHeaderAuthentication</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nordigen_cli.apiclient.endpoints</span> <span class="kn">import</span> <span class="n">Endpoints</span><span class="p">,</span> <span class="n">BaseEndpoints</span>
+<span class="kn">from</span> <span class="nn">nordigen_cli.apiclient.errors</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ResourceErrorHandler</span><span class="p">,</span>
+    <span class="n">InvalidTokenError</span><span class="p">,</span>
+    <span class="n">SignonErrorHandler</span><span class="p">,</span>
+    <span class="n">AuthenticationFailedError</span><span class="p">,</span>
+    <span class="n">PageNotFoundError</span><span class="p">,</span>
+    <span class="n">TokenFormatError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nordigen_cli.models.model</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SpectacularJWTObtain</span><span class="p">,</span>
+    <span class="n">SpectacularJWTRefresh</span><span class="p">,</span>
+    <span class="n">JWTObtainPairRequest</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nordigen_cli.models.token</span> <span class="kn">import</span> <span class="n">AccessToken</span><span class="p">,</span> <span class="n">RefreshToken</span>
+
+
+<div class="viewcode-block" id="ClientState">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.ClientState">[docs]</a>
+<span class="k">class</span> <span class="nc">ClientState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">INITIAL</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">TOKENS_CACHED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;initial inspection provided both tokens with valid expiry&quot;&quot;&quot;</span>
+    <span class="n">NO_TOKENS</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;no tokens initially provided&quot;&quot;&quot;</span>
+    <span class="n">ACCESS_TOKEN_ACTIVE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">ACCESS_TOKEN_INVALID</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a resource request failed with an invalid access token&quot;&quot;&quot;</span>
+    <span class="n">TOKEN_REFRESH_REQUEST_FAILED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;refresh token request failed&quot;&quot;&quot;</span>
+    <span class="n">TOKEN_PAIR_REQUEST_FAILED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;token pair request failed&quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="NordigenClientBase">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase">[docs]</a>
+<span class="k">class</span> <span class="nc">NordigenClientBase</span><span class="p">:</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">ClientState</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">INITIAL</span>
+    <span class="c1"># client for each of the oauth2 flows</span>
+    <span class="n">r_client</span><span class="p">:</span> <span class="s2">&quot;ResourceClient&quot;</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># the resource client</span>
+    <span class="n">t_client</span><span class="p">:</span> <span class="s2">&quot;TokenClient&quot;</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># the auth token client</span>
+    <span class="c1"># callables for injecting and receiving cached tokens</span>
+    <span class="n">signon_callback</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">refresh_callback</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">retrieve_callback</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">endpoints</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseEndpoints</span><span class="p">]</span> <span class="o">=</span> <span class="n">Endpoints</span>
+    <span class="n">do_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;initializing NordigenClient with kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do_init</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;do_init&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_init</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">signon_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;signon_callback&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">signon_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;retrieve_callback&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;refresh_callback&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_callback</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_init</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NordigenClientBase.init">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.init">[docs]</a>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">secret_id</span><span class="p">,</span>
+        <span class="n">secret_key</span><span class="p">,</span>
+        <span class="n">api</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">api</span>
+
+        <span class="k">if</span> <span class="n">api</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;endpoints&quot;</span><span class="p">):</span>
+
+            <span class="nd">@endpoint</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">api</span><span class="p">)</span>
+            <span class="k">class</span> <span class="nc">NewEndpoints</span><span class="p">(</span><span class="n">BaseEndpoints</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="n">NewEndpoints</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;endpoints&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_client</span> <span class="o">=</span> <span class="n">TokenClient</span><span class="p">(</span>
+            <span class="n">secret_id</span><span class="o">=</span><span class="n">secret_id</span><span class="p">,</span>
+            <span class="n">secret_key</span><span class="o">=</span><span class="n">secret_key</span><span class="p">,</span>
+            <span class="n">endpoints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span> <span class="o">=</span> <span class="n">ResourceClient</span><span class="p">(</span>
+            <span class="n">api</span><span class="o">=</span><span class="n">api</span><span class="p">,</span>
+            <span class="n">endpoints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">NO_TOKENS</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_callback</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.set_access_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.set_access_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">AccessToken</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">AccessToken</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">TokenFormatError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;token must be an instance of AccessToken, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">get_authentication_method</span><span class="p">()</span><span class="o">.</span><span class="n">set_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.get_access_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.get_access_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccessToken</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">get_authentication_method</span><span class="p">()</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccessToken</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_access_token</span><span class="p">()</span>
+
+<div class="viewcode-block" id="NordigenClientBase.set_refresh_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.set_refresh_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">RefreshToken</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">RefreshToken</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">TokenFormatError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;token must be an instance of RefreshToken, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_client</span><span class="o">.</span><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">token</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.get_refresh_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.get_refresh_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RefreshToken</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_client</span><span class="o">.</span><span class="n">refresh_token</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RefreshToken</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_refresh_token</span><span class="p">()</span>
+
+<div class="viewcode-block" id="NordigenClientBase.get">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.post">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.post">[docs]</a>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span>
+            <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+            <span class="n">url</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.delete">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.delete">[docs]</a>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.prerequest">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.prerequest">[docs]</a>
+    <span class="k">def</span> <span class="nf">prerequest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">depth</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;too many recursive calls&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">ACCESS_TOKEN_INVALID</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_refresh</span><span class="p">(</span>
+                <span class="n">method</span><span class="p">,</span>
+                <span class="n">url</span><span class="p">,</span>
+                <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">in</span> <span class="p">{</span>
+            <span class="n">ClientState</span><span class="o">.</span><span class="n">NO_TOKENS</span><span class="p">,</span>
+            <span class="n">ClientState</span><span class="o">.</span><span class="n">TOKEN_REFRESH_REQUEST_FAILED</span><span class="p">,</span>
+        <span class="p">}:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_signon_request</span><span class="p">(</span>
+                <span class="n">method</span><span class="p">,</span>
+                <span class="n">url</span><span class="p">,</span>
+                <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">in</span> <span class="p">{</span>
+            <span class="n">ClientState</span><span class="o">.</span><span class="n">ACCESS_TOKEN_ACTIVE</span><span class="p">,</span>
+            <span class="n">ClientState</span><span class="o">.</span><span class="n">TOKENS_CACHED</span><span class="p">,</span>
+        <span class="p">}:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+                <span class="n">method</span><span class="p">,</span>
+                <span class="n">url</span><span class="p">,</span>
+                <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            state &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="si">}</span><span class="s2">&#39; not supported.</span>
+<span class="s2">            This usually happens when something caught an exception, but didn&#39;t</span>
+<span class="s2">            reset the token state and re-tried the request with the same</span>
+<span class="s2">            arguments.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.request">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.request">[docs]</a>
+    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># with vcr.use_cassette(&quot;fixtures/vcr_cassettes/synopsis.yaml&quot;):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;PUT&quot;</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39; not supported&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="n">InvalidTokenError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">ACCESS_TOKEN_INVALID</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PageNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;page not found: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">error</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;error was not handled by client: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">error</span></div>
+
+
+    <span class="c1"># @TODO should this be _request, and the other one plain signon?</span>
+<div class="viewcode-block" id="NordigenClientBase.do_signon">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.do_signon">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_signon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">access_token</span><span class="p">,</span> <span class="n">refresh_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_client</span><span class="o">.</span><span class="n">get_tokens</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_refresh_token</span><span class="p">(</span><span class="n">refresh_token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">ACCESS_TOKEN_ACTIVE</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signon_callback</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">signon_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">access_token</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.do_signon_request">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.do_signon_request">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_signon_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">do_signon</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AuthenticationFailedError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">TOKEN_PAIR_REQUEST_FAILED</span>
+            <span class="k">raise</span> <span class="n">error</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.do_token_refresh">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.do_token_refresh">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_token_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_client</span><span class="o">.</span><span class="n">do_post_token_refresh</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">ACCESS_TOKEN_ACTIVE</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_callback</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">access_token</span></div>
+
+
+<div class="viewcode-block" id="NordigenClientBase.do_refresh">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.NordigenClientBase.do_refresh">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># if self.state == ClientState.TOKEN_ACTIVE:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;refreshing token - START&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">do_token_refresh</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AuthenticationFailedError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ClientState</span><span class="o">.</span><span class="n">TOKEN_REFRESH_REQUEST_FAILED</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">prerequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># @serialize_all_methods</span>
+<div class="viewcode-block" id="TokenClient">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.TokenClient">[docs]</a>
+<span class="k">class</span> <span class="nc">TokenClient</span><span class="p">(</span><span class="n">APIClient</span><span class="p">):</span>
+    <span class="n">secret_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">secret_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">endpoints</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseEndpoints</span><span class="p">]</span> <span class="o">=</span> <span class="n">Endpoints</span>
+    <span class="n">refresh_token</span><span class="p">:</span> <span class="n">RefreshToken</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;initializing TokenClient with kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;secret_id&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;secret_key&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;endpoints&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">authentication_method</span><span class="o">=</span><span class="n">NoAuthentication</span><span class="p">(),</span>
+            <span class="n">response_handler</span><span class="o">=</span><span class="n">JsonResponseHandler</span><span class="p">,</span>
+            <span class="n">error_handler</span><span class="o">=</span><span class="n">SignonErrorHandler</span><span class="p">,</span>
+            <span class="n">request_formatter</span><span class="o">=</span><span class="n">JsonRequestFormatter</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="TokenClient.get_tokens">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.TokenClient.get_tokens">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">AccessToken</span><span class="p">,</span> <span class="n">RefreshToken</span><span class="p">]:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;getting tokens (access+refresh)&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">spec_jwt_obtain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_get_token_new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">access_token</span> <span class="o">=</span> <span class="n">AccessToken</span><span class="p">(</span>
+                <span class="n">token</span><span class="o">=</span><span class="n">spec_jwt_obtain</span><span class="o">.</span><span class="n">access</span><span class="p">,</span>
+                <span class="n">expires_str</span><span class="o">=</span><span class="n">spec_jwt_obtain</span><span class="o">.</span><span class="n">access_expires</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">RefreshToken</span><span class="p">(</span>
+                <span class="n">token</span><span class="o">=</span><span class="n">spec_jwt_obtain</span><span class="o">.</span><span class="n">refresh</span><span class="p">,</span>
+                <span class="n">expires_str</span><span class="o">=</span><span class="n">spec_jwt_obtain</span><span class="o">.</span><span class="n">refresh_expires</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">refresh_token</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="c1"># can&#39;t prccedd if we can&#39;t get a token</span>
+            <span class="k">raise</span> <span class="n">error</span></div>
+
+
+<div class="viewcode-block" id="TokenClient.do_get_token_new">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.TokenClient.do_get_token_new">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_get_token_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpectacularJWTObtain</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">JWTObtainPairRequest</span><span class="p">(</span>
+            <span class="n">secret_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">secret_id</span><span class="p">,</span>
+            <span class="n">secret_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">token_new</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;got new token: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SpectacularJWTObtain</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TokenClient.do_post_token_refresh">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.TokenClient.do_post_token_refresh">[docs]</a>
+    <span class="k">def</span> <span class="nf">do_post_token_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccessToken</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;refresh&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_token</span><span class="o">.</span><span class="n">token</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">spec_jwt_refresh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">token_refresh</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">spec_jwt_refresh</span> <span class="o">=</span> <span class="n">SpectacularJWTRefresh</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">spec_jwt_refresh</span><span class="p">)</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">AccessToken</span><span class="p">(</span>
+            <span class="n">token</span><span class="o">=</span><span class="n">spec_jwt_refresh</span><span class="o">.</span><span class="n">access</span><span class="p">,</span>
+            <span class="n">expires_str</span><span class="o">=</span><span class="n">spec_jwt_refresh</span><span class="o">.</span><span class="n">access_expires</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">AccessToken</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">access_token</span></div>
+
+
+<div class="viewcode-block" id="TokenClient.check_refresh_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.TokenClient.check_refresh_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_refresh_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;refresh token not found&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">TokenManager</span><span class="p">()</span><span class="o">.</span><span class="n">is_token_expired</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh_token</span><span class="o">.</span><span class="n">refresh</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;refresh token is expired&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ResourceClient">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.ResourceClient">[docs]</a>
+<span class="k">class</span> <span class="nc">ResourceClient</span><span class="p">(</span><span class="n">APIClient</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Nordigen API client implementing Oauth2</span>
+<span class="sd">    implement oauth2 token refresh flow states&quot;&quot;&quot;</span>
+
+    <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">endpoints</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Endpoints</span><span class="p">]</span> <span class="o">=</span> <span class="n">Endpoints</span>
+    <span class="n">_do_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_do_init_endpoints</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="ResourceClient.get_authentication_method">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.ResourceClient.get_authentication_method">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_authentication_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RefreshableHeaderAuthentication</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">RefreshableHeaderAuthentication</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authentication_method</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;initializing Resource client with kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;api&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;endpoints&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">authentication_method</span><span class="o">=</span><span class="n">RefreshableHeaderAuthentication</span><span class="p">(),</span>
+            <span class="n">response_handler</span><span class="o">=</span><span class="n">JsonResponseHandler</span><span class="p">,</span>
+            <span class="n">error_handler</span><span class="o">=</span><span class="n">ResourceErrorHandler</span><span class="p">,</span>
+            <span class="n">request_formatter</span><span class="o">=</span><span class="n">JsonRequestFormatter</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1">#     if self._do_init_endpoints:</span>
+    <span class="c1">#         self.init_endpoints()</span>
+    <span class="c1">#</span>
+    <span class="c1"># def init_endpoints(self):</span>
+    <span class="c1">#     @endpoint(base_url=self.api)</span>
+    <span class="c1">#     class NewEndpoints(BaseEndpoints):</span>
+    <span class="c1">#         pass</span>
+    <span class="c1">#</span>
+    <span class="c1">#     self.endpoints = NewEndpoints</span>
+
+<div class="viewcode-block" id="ResourceClient.get_request_timeout">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.ResourceClient.get_request_timeout">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_request_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">45</span></div>
+
+
+<div class="viewcode-block" id="ResourceClient.is_valid_token">
+<a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.base.ResourceClient.is_valid_token">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_valid_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_authentication_method</span><span class="p">()</span><span class="o">.</span><span class="n">get_token</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;access token not found&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">TokenManager</span><span class="p">()</span><span class="o">.</span><span class="n">is_token_expired</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_authentication_method</span><span class="p">()</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span><span class="o">.</span><span class="n">token</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;access token is expired&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tom Hodder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

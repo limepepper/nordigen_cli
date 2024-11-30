@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nordigen_cli.models.mixins &mdash; Nordigen Cli 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Nordigen Cli
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Nordigen Cli</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nordigen_cli.models.mixins</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nordigen_cli.models.mixins</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">contextvars</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">loguru</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">ConfigDict</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">pydantic.functional_serializers</span> <span class="kn">import</span> <span class="n">model_serializer</span>
+<span class="kn">from</span> <span class="nn">pydantic_core.core_schema</span> <span class="kn">import</span> <span class="n">SerializationInfo</span>
+<span class="kn">from</span> <span class="nn">rich.repr</span> <span class="kn">import</span> <span class="n">RichReprResult</span>
+
+
+<div class="viewcode-block" id="MetaMixin">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.MetaMixin">[docs]</a>
+<span class="k">class</span> <span class="nc">MetaMixin</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">messages</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;messages from unit tests&quot;</span><span class="p">)</span>
+    <span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="BaseMixin">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.BaseMixin">[docs]</a>
+<span class="k">class</span> <span class="nc">BaseMixin</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;messages from unit tests&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">model_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span>
+        <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">,</span>
+        <span class="n">validate_assignment</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="c1"># class UpperAttrMetaclass(type):</span>
+<span class="c1">#     def __new__(cls, name, bases, dct):</span>
+<span class="c1">#         attrs = ((name, value) for name, value in</span>
+<span class="c1">#         dct.items() if not name.startswith(&#39;__&#39;))</span>
+<span class="c1">#         uppercase_attrs = dict((name.upper(), value) for name, value in attrs)</span>
+<span class="c1">#         return super(UpperAttrMetaclass, cls).__new</span>
+
+
+<div class="viewcode-block" id="ReprAdapter">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.ReprAdapter">[docs]</a>
+<span class="k">class</span> <span class="nc">ReprAdapter</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="ReprAdapter.from_model">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.ReprAdapter.from_model">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_model</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">BaseModel</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;ReprAdapter&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="s2">&quot;ReprAdapter&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="s2">&quot;BaseModel&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ReprMgr">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.ReprMgr">[docs]</a>
+<span class="k">class</span> <span class="nc">ReprMgr</span><span class="p">:</span>
+    <span class="n">mappings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">type</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">],</span> <span class="nb">type</span><span class="p">[</span><span class="n">ReprAdapter</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="ReprMgr.register">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.ReprMgr.register">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">],</span> <span class="n">formatter</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ReprAdapter</span><span class="p">]):</span>
+        <span class="c1"># print(f&quot;Registering {model} with {formatter}&quot;)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">mappings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">model</span><span class="p">:</span> <span class="n">formatter</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="ReprMgr.adapt">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.ReprMgr.adapt">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">adapt</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">mappings</span><span class="p">:</span>
+            <span class="c1"># print(f&quot;Adapting {type(data)}&quot;)</span>
+            <span class="n">adapted</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">mappings</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span><span class="o">.</span><span class="n">from_model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="c1"># print(f&quot;===&gt; adapted to {type(adapted)}&quot;)</span>
+            <span class="k">return</span> <span class="n">adapted</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># print(f&quot;not adapter type {type(data)} in {cls.mappings}&quot;)</span>
+            <span class="k">return</span> <span class="n">data</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="OmitIfNone">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.OmitIfNone">[docs]</a>
+<span class="k">class</span> <span class="nc">OmitIfNone</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+
+<span class="n">serializer_mode</span> <span class="o">=</span> <span class="n">contextvars</span><span class="o">.</span><span class="n">ContextVar</span><span class="p">(</span><span class="s2">&quot;serializer_mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="NoSerializeNoneModel">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.NoSerializeNoneModel">[docs]</a>
+<span class="k">class</span> <span class="nc">NoSerializeNoneModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="NoSerializeNoneModel.serialize_as">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.NoSerializeNoneModel.serialize_as">[docs]</a>
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">serialize_as</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simplified_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">serializer_mode</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">simplified_type</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">serializer_mode</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">token</span><span class="p">)</span></div>
+
+
+    <span class="nd">@model_serializer</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wrap&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">SerializationInfo</span><span class="p">):</span>
+        <span class="c1"># print(f&quot;serialising type {type(self)}&quot;)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;serialising info </span><span class="si">{</span><span class="n">info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">context</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="n">ReprMgr</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simplified_type&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span>
+        <span class="n">inner</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span> <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span> <span class="k">else</span> <span class="n">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keys are </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">model_fields</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">model_fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">inner</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">OmitIfNone</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">inner</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span>
+                <span class="p">):</span>
+                    <span class="k">del</span> <span class="n">inner</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">inner</span></div>
+
+
+
+<div class="viewcode-block" id="DisplayField">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.DisplayField">[docs]</a>
+<span class="k">class</span> <span class="nc">DisplayField</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="BaseRootMixin">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.BaseRootMixin">[docs]</a>
+<span class="k">class</span> <span class="nc">BaseRootMixin</span><span class="p">(</span><span class="n">NoSerializeNoneModel</span><span class="p">):</span>
+    <span class="n">mymeta</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">OmitIfNone</span><span class="p">()]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">model_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span>
+        <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">,</span>
+        <span class="n">validate_assignment</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="BaseRootMixin.accept">
+<a class="viewcode-back" href="../../../nordigen_cli.models.html#nordigen_cli.models.mixins.BaseRootMixin.accept">[docs]</a>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+    <span class="c1"># def __rich__(self) -&gt; str:</span>
+    <span class="c1">#     return &quot;[bold cyan]MyObject()&quot;</span>
+
+    <span class="c1"># __repr_name__ = _repr.Representation.__repr_name__</span>
+    <span class="c1"># __repr_str__ = _repr.Representation.__repr_str__</span>
+    <span class="c1"># __pretty__ = _repr.Representation.__pretty__</span>
+    <span class="c1"># __rich_repr__ = _repr.Representation.__rich_repr__</span>
+
+    <span class="k">def</span> <span class="nf">__rich_repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RichReprResult</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;TransactionSchema&quot;</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="s2">&quot;Transaction&quot;</span><span class="p">,</span> <span class="p">{}</span>
+            <span class="c1"># yield &quot;Amount&quot;, self.amount</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">field_repr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__repr_args__</span><span class="p">():</span>
+                <span class="c1"># print(f&quot;{name!r}= {field_repr!r}&quot;)</span>
+                <span class="c1"># print(f&quot;{type(name)} = {type(field_repr)}&quot;)</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">field_repr</span>
+
+                <span class="k">if</span> <span class="n">field_repr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">field_repr</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">field_repr</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__rich_repr__</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Tom Hodder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
