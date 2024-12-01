@@ -6,9 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nordigen Cli documentation &mdash; Nordigen Cli 0.1.0 documentation</title>
+  <title>Nordigen Cli guide &mdash; Nordigen Cli 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,9 +17,11 @@
       <script src="_static/documentation_options.js?v=01f34227"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/tabs.js?v=3ee01567"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction" href="intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,11 +43,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Nordigen Cli documentation</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. nordigen_cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">4. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">5. License</a></li>
 </ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -59,7 +66,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Nordigen Cli documentation</li>
+      <li class="breadcrumb-item active">Nordigen Cli guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -69,12 +76,117 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nordigen-cli-documentation">
-<h1>Nordigen Cli documentation<a class="headerlink" href="#nordigen-cli-documentation" title="Link to this heading"></a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
+  <section id="nordigen-cli-guide">
+<h1>Nordigen Cli guide<a class="headerlink" href="#nordigen-cli-guide" title="Link to this heading"></a></h1>
+<section id="quick-reference">
+<span id="id1"></span><h2>Quick reference<a class="headerlink" href="#quick-reference" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Quick start</p></li>
+</ol>
+<p>install package from pypi using the usual methods</p>
+<div class="docutils container">
+<iframe style="border: none;" width="100%" height="914px" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style&gt;
+.r1 {font-weight: bold}
+.r2 {color: #808000; text-decoration-color: #808000; font-weight: bold}
+.r3 {color: #7f7f7f; text-decoration-color: #7f7f7f}
+.r4 {color: #008080; text-decoration-color: #008080; font-weight: bold}
+.r5 {color: #008000; text-decoration-color: #008000; font-weight: bold}
+.r6 {color: #008000; text-decoration-color: #008000}
+.r7 {color: #bfbf7f; text-decoration-color: #bfbf7f; font-weight: bold}
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;pre style=&quot;font-family:Menlo,&#x27;DejaVu Sans Mono&#x27;,consolas,&#x27;Courier New&#x27;,monospace&quot;&gt;&lt;code style=&quot;font-family:inherit&quot;&gt;&lt;span class=&quot;r1&quot;&gt;                                                                      &lt;/span&gt;
+&lt;span class=&quot;r1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;Usage: &lt;/span&gt;&lt;span class=&quot;r1&quot;&gt;nordigen-cli [OPTIONS] COMMAND [ARGS]...                      &lt;/span&gt;
+&lt;span class=&quot;r1&quot;&gt;                                                                      &lt;/span&gt;
+ Nordigen API client                                                  
+                                                                      
+&lt;span class=&quot;r3&quot;&gt;╭─ Options ──────────────────────────────────────────────────────────╮&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--version&lt;/span&gt;                   &lt;span class=&quot;r2&quot;&gt;                 &lt;/span&gt;                      &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--profile&lt;/span&gt;           &lt;span class=&quot;r5&quot;&gt;-p&lt;/span&gt;      &lt;span class=&quot;r2&quot;&gt;TEXT             &lt;/span&gt;  override profile    &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                settings, select a  &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                specific &lt;span class=&quot;r6&quot;&gt;profile&lt;/span&gt;    &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                &lt;span class=&quot;r3&quot;&gt;[default: default] &lt;/span&gt; &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--output-format&lt;/span&gt;,&lt;span class=&quot;r4&quot;&gt;-…&lt;/span&gt;  &lt;span class=&quot;r5&quot;&gt;-f&lt;/span&gt;      &lt;span class=&quot;r7&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;rich&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;y&lt;/span&gt;  &lt;span class=&quot;r3&quot;&gt;[default: None]&lt;/span&gt;     &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                             &lt;span class=&quot;r2&quot;&gt;aml&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;jsonl&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;r7&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;r2&quot;&gt; &lt;/span&gt;                      &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--install-complet…&lt;/span&gt;          &lt;span class=&quot;r2&quot;&gt;                 &lt;/span&gt;  Install completion  &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                for the current     &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                shell.              &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--show-completion&lt;/span&gt;           &lt;span class=&quot;r2&quot;&gt;                 &lt;/span&gt;  Show completion for &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                the current shell,  &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                to copy it or       &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                customize the       &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                installation.       &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--help&lt;/span&gt;                      &lt;span class=&quot;r2&quot;&gt;                 &lt;/span&gt;  Show this message   &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                                and exit.           &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;╰────────────────────────────────────────────────────────────────────╯&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;╭─ Override config file settings ────────────────────────────────────╮&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--id&lt;/span&gt;,&lt;span class=&quot;r4&quot;&gt;--secret-id&lt;/span&gt;            &lt;span class=&quot;r2&quot;&gt;TEXT&lt;/span&gt;  Nordigen API secret ID           &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--key&lt;/span&gt;,&lt;span class=&quot;r4&quot;&gt;--secret-key&lt;/span&gt;          &lt;span class=&quot;r2&quot;&gt;TEXT&lt;/span&gt;  Nordigen API secret Key          &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--api&lt;/span&gt;,&lt;span class=&quot;r4&quot;&gt;--api-url&lt;/span&gt;             &lt;span class=&quot;r2&quot;&gt;TEXT&lt;/span&gt;  Nordigen API Url path            &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;--config-file&lt;/span&gt;       &lt;span class=&quot;r5&quot;&gt;-c&lt;/span&gt;      &lt;span class=&quot;r2&quot;&gt;PATH&lt;/span&gt;  Load configuration from specific &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                   file                             &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                   &lt;span class=&quot;r3&quot;&gt;[default:                       &lt;/span&gt; &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;                                   &lt;span class=&quot;r3&quot;&gt;/home/tomhodder/.config/nordige…&lt;/span&gt; &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;╰────────────────────────────────────────────────────────────────────╯&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;╭─ Commands ─────────────────────────────────────────────────────────╮&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;version             &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;list-country-codes  &lt;/span&gt; list ISO 3166 2-letter country codes          &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;list-endusers       &lt;/span&gt; list any enduser ids that are associated with &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;                    &lt;/span&gt; requisitions                                  &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;approvals           &lt;/span&gt; Approval flows                                &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;config              &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;bank                &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;agreements          &lt;/span&gt; this is short help                            &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;client              &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;requisitions        &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt; &lt;span class=&quot;r4&quot;&gt;account             &lt;/span&gt;                                               &lt;span class=&quot;r3&quot;&gt;│&lt;/span&gt;
+&lt;span class=&quot;r3&quot;&gt;╰────────────────────────────────────────────────────────────────────╯&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+<ol class="arabic" start="2">
+<li><p>Configuration</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nordigen_cli
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">macOS</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nordigen_cli
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Windows</label><div class="tab-content docutils container">
+<div class="highlight-dosbatch notranslate"><div class="highlight"><pre><span></span>pip install nordigen_cli
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+</ol>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. nordigen_cli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nordigen_cli.html">3.1. nordigen_cli package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">4. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">5. License</a></li>
+</ul>
 </div>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
@@ -82,11 +194,14 @@ documentation for details.</p>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

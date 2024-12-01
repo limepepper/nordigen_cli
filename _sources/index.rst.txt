@@ -1,21 +1,63 @@
-.. Nordigen Cli documentation master file, created by
-   sphinx-quickstart on Sat Nov 30 00:02:47 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+==================
+Nordigen Cli guide
+==================
 
-Nordigen Cli documentation
-==========================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+
+.. _quick-reference:
+
+Quick reference
+---------------
+
+1. Quick start
+
+install package from pypi using the usual methods
+
+.. typer:: nordigen_cli.nordigen_cli.cli
+    :prog: nordigen-cli
+    :width: 70
+    :preferred: html
+
+
+
+2. Configuration
+
+   .. tab:: Unix
+
+      .. code-block:: shell
+
+         pip install nordigen_cli
+
+   .. tab:: macOS
+
+      .. code-block:: shell
+
+         pip install nordigen_cli
+
+   .. tab:: Windows
+
+      .. code-block:: dosbatch
+
+         pip install nordigen_cli
+
+
+
 
 
 .. toctree::
     :maxdepth: 2
     :caption: Contents:
     :numbered:
+    :titlesonly:
+
+    intro
+    installation
+    modules
+    contributing 
+    license
+
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

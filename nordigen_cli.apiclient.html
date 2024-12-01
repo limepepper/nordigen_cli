@@ -6,9 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nordigen_cli.apiclient package &mdash; Nordigen Cli 0.1.0 documentation</title>
+  <title>3.1.1.1. nordigen_cli.apiclient package &mdash; Nordigen Cli 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,9 +17,12 @@
       <script src="_static/documentation_options.js?v=01f34227"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/tabs.js?v=3ee01567"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.1.1.2. nordigen_cli.commands package" href="nordigen_cli.commands.html" />
+    <link rel="prev" title="3.1. nordigen_cli package" href="nordigen_cli.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,193 +44,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">nordigen_cli.apiclient package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.authentication">nordigen_cli.apiclient.authentication module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication"><code class="docutils literal notranslate"><span class="pre">RefreshableHeaderAuthentication</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication.get_headers"><code class="docutils literal notranslate"><span class="pre">RefreshableHeaderAuthentication.get_headers()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication.get_token"><code class="docutils literal notranslate"><span class="pre">RefreshableHeaderAuthentication.get_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication.set_token"><code class="docutils literal notranslate"><span class="pre">RefreshableHeaderAuthentication.set_token()</span></code></a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">3. nordigen_cli</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nordigen_cli.html">3.1. nordigen_cli package</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.1.1.1. nordigen_cli.apiclient package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.commands.html">3.1.1.2. nordigen_cli.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.formatters.html">3.1.1.3. nordigen_cli.formatters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.models.html">3.1.1.4. nordigen_cli.models package</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.base">nordigen_cli.apiclient.base module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState"><code class="docutils literal notranslate"><span class="pre">ClientState</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.ACCESS_TOKEN_ACTIVE"><code class="docutils literal notranslate"><span class="pre">ClientState.ACCESS_TOKEN_ACTIVE</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.ACCESS_TOKEN_INVALID"><code class="docutils literal notranslate"><span class="pre">ClientState.ACCESS_TOKEN_INVALID</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.INITIAL"><code class="docutils literal notranslate"><span class="pre">ClientState.INITIAL</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.NO_TOKENS"><code class="docutils literal notranslate"><span class="pre">ClientState.NO_TOKENS</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.TOKENS_CACHED"><code class="docutils literal notranslate"><span class="pre">ClientState.TOKENS_CACHED</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.TOKEN_PAIR_REQUEST_FAILED"><code class="docutils literal notranslate"><span class="pre">ClientState.TOKEN_PAIR_REQUEST_FAILED</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ClientState.TOKEN_REFRESH_REQUEST_FAILED"><code class="docutils literal notranslate"><span class="pre">ClientState.TOKEN_REFRESH_REQUEST_FAILED</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">4. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">5. License</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.access_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.access_token</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.base_url"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.base_url</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.delete"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.delete()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.do_init"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.do_init</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.do_refresh"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.do_refresh()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.do_signon"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.do_signon()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.do_signon_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.do_signon_request()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.do_token_refresh"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.do_token_refresh()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.endpoints"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.endpoints</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.get"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.get()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.get_access_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.get_access_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.get_refresh_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.get_refresh_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.init"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.init()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.post"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.post()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.prerequest"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.prerequest()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.r_client"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.r_client</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.refresh_callback"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.refresh_callback</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.refresh_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.refresh_token</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.request"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.request()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.retrieve_callback"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.retrieve_callback</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.set_access_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.set_access_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.set_refresh_token"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.set_refresh_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.signon_callback"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.signon_callback</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.state"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.state</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.NordigenClientBase.t_client"><code class="docutils literal notranslate"><span class="pre">NordigenClientBase.t_client</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient"><code class="docutils literal notranslate"><span class="pre">ResourceClient</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient.base_url"><code class="docutils literal notranslate"><span class="pre">ResourceClient.base_url</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient.endpoints"><code class="docutils literal notranslate"><span class="pre">ResourceClient.endpoints</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient.get_authentication_method"><code class="docutils literal notranslate"><span class="pre">ResourceClient.get_authentication_method()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient.get_request_timeout"><code class="docutils literal notranslate"><span class="pre">ResourceClient.get_request_timeout()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.ResourceClient.is_valid_token"><code class="docutils literal notranslate"><span class="pre">ResourceClient.is_valid_token()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient"><code class="docutils literal notranslate"><span class="pre">TokenClient</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.check_refresh_token"><code class="docutils literal notranslate"><span class="pre">TokenClient.check_refresh_token()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.do_get_token_new"><code class="docutils literal notranslate"><span class="pre">TokenClient.do_get_token_new()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.do_post_token_refresh"><code class="docutils literal notranslate"><span class="pre">TokenClient.do_post_token_refresh()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.endpoints"><code class="docutils literal notranslate"><span class="pre">TokenClient.endpoints</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.get_tokens"><code class="docutils literal notranslate"><span class="pre">TokenClient.get_tokens()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.refresh_token"><code class="docutils literal notranslate"><span class="pre">TokenClient.refresh_token</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.secret_id"><code class="docutils literal notranslate"><span class="pre">TokenClient.secret_id</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.base.TokenClient.secret_key"><code class="docutils literal notranslate"><span class="pre">TokenClient.secret_key</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.client">nordigen_cli.apiclient.client module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient"><code class="docutils literal notranslate"><span class="pre">NordigenClient</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.accept_agreement"><code class="docutils literal notranslate"><span class="pre">NordigenClient.accept_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.create_end_user_agreement"><code class="docutils literal notranslate"><span class="pre">NordigenClient.create_end_user_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.create_requisition"><code class="docutils literal notranslate"><span class="pre">NordigenClient.create_requisition()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.delete_agreement"><code class="docutils literal notranslate"><span class="pre">NordigenClient.delete_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.delete_requisition"><code class="docutils literal notranslate"><span class="pre">NordigenClient.delete_requisition()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.list_account_transactions"><code class="docutils literal notranslate"><span class="pre">NordigenClient.list_account_transactions()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.list_agreements"><code class="docutils literal notranslate"><span class="pre">NordigenClient.list_agreements()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.list_banks"><code class="docutils literal notranslate"><span class="pre">NordigenClient.list_banks()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.list_requisitions"><code class="docutils literal notranslate"><span class="pre">NordigenClient.list_requisitions()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_account_balances"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_account_balances()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_account_details"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_account_details()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_account_metadata"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_account_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_agreement"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_bank"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_bank()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.client.NordigenClient.show_requisition"><code class="docutils literal notranslate"><span class="pre">NordigenClient.show_requisition()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.endpoints">nordigen_cli.apiclient.endpoints module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.account_balances"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.account_balances</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.account_details"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.account_details</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.account_metadata"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.account_metadata</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.agreement"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.agreement</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.agreement_accept"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.agreement_accept</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.agreements"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.agreements</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.bank"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.bank</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.banks"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.banks</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.requisition"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.requisition</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.requisitions"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.requisitions</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.token_new"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.token_new</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.token_refresh"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.token_refresh</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints.transactions"><code class="docutils literal notranslate"><span class="pre">BaseEndpoints.transactions</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints"><code class="docutils literal notranslate"><span class="pre">Endpoints</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.account_balances"><code class="docutils literal notranslate"><span class="pre">Endpoints.account_balances</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.account_details"><code class="docutils literal notranslate"><span class="pre">Endpoints.account_details</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.account_metadata"><code class="docutils literal notranslate"><span class="pre">Endpoints.account_metadata</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.agreement"><code class="docutils literal notranslate"><span class="pre">Endpoints.agreement</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.agreement_accept"><code class="docutils literal notranslate"><span class="pre">Endpoints.agreement_accept</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.agreements"><code class="docutils literal notranslate"><span class="pre">Endpoints.agreements</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.bank"><code class="docutils literal notranslate"><span class="pre">Endpoints.bank</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.banks"><code class="docutils literal notranslate"><span class="pre">Endpoints.banks</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.requisition"><code class="docutils literal notranslate"><span class="pre">Endpoints.requisition</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.requisitions"><code class="docutils literal notranslate"><span class="pre">Endpoints.requisitions</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.token_new"><code class="docutils literal notranslate"><span class="pre">Endpoints.token_new</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.token_refresh"><code class="docutils literal notranslate"><span class="pre">Endpoints.token_refresh</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.endpoints.Endpoints.transactions"><code class="docutils literal notranslate"><span class="pre">Endpoints.transactions</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.errors">nordigen_cli.apiclient.errors module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.AuthenticationFailedError"><code class="docutils literal notranslate"><span class="pre">AuthenticationFailedError</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.InvalidTokenError"><code class="docutils literal notranslate"><span class="pre">InvalidTokenError</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.NordigenClientError"><code class="docutils literal notranslate"><span class="pre">NordigenClientError</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.NordigenClientError.response"><code class="docutils literal notranslate"><span class="pre">NordigenClientError.response</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.OtherAuthenticationError"><code class="docutils literal notranslate"><span class="pre">OtherAuthenticationError</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.PageNotFoundError"><code class="docutils literal notranslate"><span class="pre">PageNotFoundError</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.ResourceErrorHandler"><code class="docutils literal notranslate"><span class="pre">ResourceErrorHandler</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.ResourceErrorHandler.get_exception"><code class="docutils literal notranslate"><span class="pre">ResourceErrorHandler.get_exception()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.SignonErrorHandler"><code class="docutils literal notranslate"><span class="pre">SignonErrorHandler</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.SignonErrorHandler.get_exception"><code class="docutils literal notranslate"><span class="pre">SignonErrorHandler.get_exception()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.TokenExpiredError"><code class="docutils literal notranslate"><span class="pre">TokenExpiredError</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.errors.TokenFormatError"><code class="docutils literal notranslate"><span class="pre">TokenFormatError</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.paginator">nordigen_cli.apiclient.paginator module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.paginator.next_page_by_url"><code class="docutils literal notranslate"><span class="pre">next_page_by_url()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient.state">nordigen_cli.apiclient.state module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState"><code class="docutils literal notranslate"><span class="pre">NordigenClientState</span></code></a><ul>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.before_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.before_request()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.final_states"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.final_states</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.initial"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.initial</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.initial_state"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.initial_state</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.name"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.name</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.on_before_resource_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.on_before_resource_request()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.on_transition"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.on_transition()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.resource_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.resource_request</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.should_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.should_request()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.startup"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.startup</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.states"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.states</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.states_map"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.states_map</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_active"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_active</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_cached"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_cached</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_expired"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_expired</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_invalid"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_invalid</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_none"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_none</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_refresh"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_refresh</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_refresh_failed"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_refresh_failed</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_request"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_request</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_request_failed"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_request_failed</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.apiclient.state.NordigenClientState.token_validate"><code class="docutils literal notranslate"><span class="pre">NordigenClientState.token_validate</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.apiclient">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -241,7 +76,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">nordigen_cli.apiclient package</li>
+          <li class="breadcrumb-item"><a href="modules.html"><span class="section-number">3. </span>nordigen_cli</a></li>
+          <li class="breadcrumb-item"><a href="nordigen_cli.html"><span class="section-number">3.1. </span>nordigen_cli package</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1.1.1. </span>nordigen_cli.apiclient package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nordigen_cli.apiclient.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -252,12 +89,12 @@
            <div itemprop="articleBody">
              
   <section id="nordigen-cli-apiclient-package">
-<h1>nordigen_cli.apiclient package<a class="headerlink" href="#nordigen-cli-apiclient-package" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3.1.1.1. </span>nordigen_cli.apiclient package<a class="headerlink" href="#nordigen-cli-apiclient-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.1.1.1. </span>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-nordigen_cli.apiclient.authentication">
-<span id="nordigen-cli-apiclient-authentication-module"></span><h2>nordigen_cli.apiclient.authentication module<a class="headerlink" href="#module-nordigen_cli.apiclient.authentication" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-apiclient-authentication-module"></span><h2><span class="section-number">3.1.1.1.2. </span>nordigen_cli.apiclient.authentication module<a class="headerlink" href="#module-nordigen_cli.apiclient.authentication" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.authentication.</span></span><span class="sig-name descname"><span class="pre">RefreshableHeaderAuthentication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nordigen_cli.models.html#nordigen_cli.models.token.AccessToken" title="nordigen_cli.models.token.AccessToken"><span class="pre">AccessToken</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Authorization'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Bearer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/authentication.html#RefreshableHeaderAuthentication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.authentication.RefreshableHeaderAuthentication" title="Link to this definition"></a></dt>
@@ -281,7 +118,7 @@
 
 </section>
 <section id="module-nordigen_cli.apiclient.base">
-<span id="nordigen-cli-apiclient-base-module"></span><h2>nordigen_cli.apiclient.base module<a class="headerlink" href="#module-nordigen_cli.apiclient.base" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-apiclient-base-module"></span><h2><span class="section-number">3.1.1.1.3. </span>nordigen_cli.apiclient.base module<a class="headerlink" href="#module-nordigen_cli.apiclient.base" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.base.ClientState">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.base.</span></span><span class="sig-name descname"><span class="pre">ClientState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/base.html#ClientState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.base.ClientState" title="Link to this definition"></a></dt>
@@ -544,7 +381,7 @@ implement oauth2 token refresh flow states</p>
 
 </section>
 <section id="module-nordigen_cli.apiclient.client">
-<span id="nordigen-cli-apiclient-client-module"></span><h2>nordigen_cli.apiclient.client module<a class="headerlink" href="#module-nordigen_cli.apiclient.client" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-apiclient-client-module"></span><h2><span class="section-number">3.1.1.1.4. </span>nordigen_cli.apiclient.client module<a class="headerlink" href="#module-nordigen_cli.apiclient.client" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.client.NordigenClient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.client.</span></span><span class="sig-name descname"><span class="pre">NordigenClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/client.html#NordigenClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.client.NordigenClient" title="Link to this definition"></a></dt>
@@ -628,7 +465,7 @@ implement oauth2 token refresh flow states</p>
 
 </section>
 <section id="module-nordigen_cli.apiclient.endpoints">
-<span id="nordigen-cli-apiclient-endpoints-module"></span><h2>nordigen_cli.apiclient.endpoints module<a class="headerlink" href="#module-nordigen_cli.apiclient.endpoints" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-apiclient-endpoints-module"></span><h2><span class="section-number">3.1.1.1.5. </span>nordigen_cli.apiclient.endpoints module<a class="headerlink" href="#module-nordigen_cli.apiclient.endpoints" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.endpoints.BaseEndpoints">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.endpoints.</span></span><span class="sig-name descname"><span class="pre">BaseEndpoints</span></span><a class="reference internal" href="_modules/nordigen_cli/apiclient/endpoints.html#BaseEndpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.endpoints.BaseEndpoints" title="Link to this definition"></a></dt>
@@ -773,7 +610,7 @@ implement oauth2 token refresh flow states</p>
 
 </section>
 <section id="module-nordigen_cli.apiclient.errors">
-<span id="nordigen-cli-apiclient-errors-module"></span><h2>nordigen_cli.apiclient.errors module<a class="headerlink" href="#module-nordigen_cli.apiclient.errors" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-apiclient-errors-module"></span><h2><span class="section-number">3.1.1.1.6. </span>nordigen_cli.apiclient.errors module<a class="headerlink" href="#module-nordigen_cli.apiclient.errors" title="Link to this heading"></a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.errors.AuthenticationFailedError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.errors.</span></span><span class="sig-name descname"><span class="pre">AuthenticationFailedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Response</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/errors.html#AuthenticationFailedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.errors.AuthenticationFailedError" title="Link to this definition"></a></dt>
@@ -790,15 +627,32 @@ implement oauth2 token refresh flow states</p>
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.errors.NordigenClientError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.errors.</span></span><span class="sig-name descname"><span class="pre">NordigenClientError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Response</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/errors.html#NordigenClientError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.errors.NordigenClientError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ClientError</span></code></p>
-<dl class="simple">
-<dt>{</dt><dd><p>“summary”: “Authentication failed”,
-“detail”: “No active account found with the given credentials”,
-“status_code”: 401
-“type”: null</p>
+<p>Client error which has fields for ErrorResponse objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>response</strong> (<em>Response</em>) – Response object</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – Error message</p></li>
+<li><p><strong>status_code</strong> (<em>int</em>) – HTTP status code</p></li>
+<li><p><strong>info</strong> (<em>dict</em>) – Raw data from response</p></li>
+</ul>
 </dd>
 </dl>
-<p>}
-# doesn’t seem to pass type though</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>doesn’t seem to pass type though in any response</p>
+</div>
+<p class="rubric">Example</p>
+<p>This is an example of the error response from the
+Nordigen API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;Authentication failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;No active account found with the given credentials&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">401</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nordigen_cli.apiclient.errors.NordigenClientError.response">
 <span class="sig-name descname"><span class="pre">response</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Response</span></em><a class="headerlink" href="#nordigen_cli.apiclient.errors.NordigenClientError.response" title="Link to this definition"></a></dt>
@@ -853,975 +707,18 @@ implement oauth2 token refresh flow states</p>
 </dd></dl>
 
 </section>
-<section id="module-nordigen_cli.apiclient.paginator">
-<span id="nordigen-cli-apiclient-paginator-module"></span><h2>nordigen_cli.apiclient.paginator module<a class="headerlink" href="#module-nordigen_cli.apiclient.paginator" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.paginator.next_page_by_url">
-<span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.paginator.</span></span><span class="sig-name descname"><span class="pre">next_page_by_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_page_url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/paginator.html#next_page_by_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.paginator.next_page_by_url" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-<section id="module-nordigen_cli.apiclient.state">
-<span id="nordigen-cli-apiclient-state-module"></span><h2>nordigen_cli.apiclient.state module<a class="headerlink" href="#module-nordigen_cli.apiclient.state" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nordigen_cli.apiclient.state.</span></span><span class="sig-name descname"><span class="pre">NordigenClientState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/state.html#NordigenClientState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StateMachine</span></code></p>
-<p>state machine implementing Oauth2
-implement oauth2 token refresh flow states
-before_transition()
-on_exit_state()
-on_transition()
-on_enter_state()
-after_transition()</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.before_request">
-<span class="sig-name descname"><span class="pre">before_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/state.html#NordigenClientState.before_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.before_request" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.final_states">
-<span class="sig-name descname"><span class="pre">final_states</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[State('Token</span> <span class="pre">invalid',</span> <span class="pre">id='token_invalid',</span> <span class="pre">value='token_invalid',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">State('Token</span> <span class="pre">refresh</span> <span class="pre">failed',</span> <span class="pre">id='token_refresh_failed',</span> <span class="pre">value='token_refresh_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">State('Token</span> <span class="pre">request</span> <span class="pre">failed',</span> <span class="pre">id='token_request_failed',</span> <span class="pre">value='token_request_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True)]</span></em><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.final_states" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.initial">
-<span class="sig-name descname"><span class="pre">initial</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.initial" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.initial_state">
-<span class="sig-name descname"><span class="pre">initial_state</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.initial_state" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NordigenClientState'</span></em><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.on_before_resource_request">
-<span class="sig-name descname"><span class="pre">on_before_resource_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/state.html#NordigenClientState.on_before_resource_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.on_before_resource_request" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.on_transition">
-<span class="sig-name descname"><span class="pre">on_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/state.html#NordigenClientState.on_transition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.on_transition" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.resource_request">
-<span class="sig-name descname"><span class="pre">resource_request</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.resource_request" title="Link to this definition"></a></dt>
-<dd><p>An event is triggers a signal that something has happened.</p>
-<p>They are send to a state machine and allow the state machine to react.</p>
-<p>An event starts a <span class="xref std std-ref">Transition</span>, which can be thought of as a “cause” that initiates a
-change in the state of the system.</p>
-<p>See also <span class="xref std std-ref">events</span>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.should_request">
-<span class="sig-name descname"><span class="pre">should_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/apiclient/state.html#NordigenClientState.should_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.should_request" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.startup">
-<span class="sig-name descname"><span class="pre">startup</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.startup" title="Link to this definition"></a></dt>
-<dd><p>An event is triggers a signal that something has happened.</p>
-<p>They are send to a state machine and allow the state machine to react.</p>
-<p>An event starts a <span class="xref std std-ref">Transition</span>, which can be thought of as a “cause” that initiates a
-change in the state of the system.</p>
-<p>See also <span class="xref std std-ref">events</span>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.states">
-<span class="sig-name descname"><span class="pre">states</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[State('Initial',</span> <span class="pre">id='initial',</span> <span class="pre">value='initial',</span> <span class="pre">initial=True,</span> <span class="pre">final=False),</span> <span class="pre">State('Token</span> <span class="pre">active',</span> <span class="pre">id='token_active',</span> <span class="pre">value='token_active',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">State('Token</span> <span class="pre">cached',</span> <span class="pre">id='token_cached',</span> <span class="pre">value='token_cached',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">State('Token</span> <span class="pre">expired',</span> <span class="pre">id='token_expired',</span> <span class="pre">value='token_expired',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">State('Token</span> <span class="pre">invalid',</span> <span class="pre">id='token_invalid',</span> <span class="pre">value='token_invalid',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">State('Token</span> <span class="pre">none',</span> <span class="pre">id='token_none',</span> <span class="pre">value='token_none',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">State('Token</span> <span class="pre">refresh</span> <span class="pre">failed',</span> <span class="pre">id='token_refresh_failed',</span> <span class="pre">value='token_refresh_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">State('Token</span> <span class="pre">request</span> <span class="pre">failed',</span> <span class="pre">id='token_request_failed',</span> <span class="pre">value='token_request_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True)]</span></em><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.states" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.states_map">
-<span class="sig-name descname"><span class="pre">states_map</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'initial':</span> <span class="pre">State('Initial',</span> <span class="pre">id='initial',</span> <span class="pre">value='initial',</span> <span class="pre">initial=True,</span> <span class="pre">final=False),</span> <span class="pre">'token_active':</span> <span class="pre">State('Token</span> <span class="pre">active',</span> <span class="pre">id='token_active',</span> <span class="pre">value='token_active',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">'token_cached':</span> <span class="pre">State('Token</span> <span class="pre">cached',</span> <span class="pre">id='token_cached',</span> <span class="pre">value='token_cached',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">'token_expired':</span> <span class="pre">State('Token</span> <span class="pre">expired',</span> <span class="pre">id='token_expired',</span> <span class="pre">value='token_expired',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">'token_invalid':</span> <span class="pre">State('Token</span> <span class="pre">invalid',</span> <span class="pre">id='token_invalid',</span> <span class="pre">value='token_invalid',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">'token_none':</span> <span class="pre">State('Token</span> <span class="pre">none',</span> <span class="pre">id='token_none',</span> <span class="pre">value='token_none',</span> <span class="pre">initial=False,</span> <span class="pre">final=False),</span> <span class="pre">'token_refresh_failed':</span> <span class="pre">State('Token</span> <span class="pre">refresh</span> <span class="pre">failed',</span> <span class="pre">id='token_refresh_failed',</span> <span class="pre">value='token_refresh_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True),</span> <span class="pre">'token_request_failed':</span> <span class="pre">State('Token</span> <span class="pre">request</span> <span class="pre">failed',</span> <span class="pre">id='token_request_failed',</span> <span class="pre">value='token_request_failed',</span> <span class="pre">initial=False,</span> <span class="pre">final=True)}</span></em><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.states_map" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_active">
-<span class="sig-name descname"><span class="pre">token_active</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_active" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_cached">
-<span class="sig-name descname"><span class="pre">token_cached</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_cached" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_expired">
-<span class="sig-name descname"><span class="pre">token_expired</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_expired" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_invalid">
-<span class="sig-name descname"><span class="pre">token_invalid</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_invalid" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_none">
-<span class="sig-name descname"><span class="pre">token_none</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_none" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_refresh">
-<span class="sig-name descname"><span class="pre">token_refresh</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_refresh" title="Link to this definition"></a></dt>
-<dd><p>An event is triggers a signal that something has happened.</p>
-<p>They are send to a state machine and allow the state machine to react.</p>
-<p>An event starts a <span class="xref std std-ref">Transition</span>, which can be thought of as a “cause” that initiates a
-change in the state of the system.</p>
-<p>See also <span class="xref std std-ref">events</span>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_refresh_failed">
-<span class="sig-name descname"><span class="pre">token_refresh_failed</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_refresh_failed" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_request">
-<span class="sig-name descname"><span class="pre">token_request</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_request" title="Link to this definition"></a></dt>
-<dd><p>An event is triggers a signal that something has happened.</p>
-<p>They are send to a state machine and allow the state machine to react.</p>
-<p>An event starts a <span class="xref std std-ref">Transition</span>, which can be thought of as a “cause” that initiates a
-change in the state of the system.</p>
-<p>See also <span class="xref std std-ref">events</span>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_request_failed">
-<span class="sig-name descname"><span class="pre">token_request_failed</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_request_failed" title="Link to this definition"></a></dt>
-<dd><p>A State in a <span class="xref std std-ref">StateMachine</span> describes a particular behavior of the machine.
-When we say that a machine is “in” a state, it means that the machine behaves
-in the way that state describes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – <p>A human-readable representation of the state. Default is derived
-from the name of the variable assigned to the state machine class.
-The name is derived from the id using this logic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">id</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-</div>
-</p></li>
-<li><p><strong>value</strong> – A specific value to the storage and retrieval of states.
-If specified, you can use It to map a more friendly representation to a low-level
-value.</p></li>
-<li><p><strong>initial</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">State</span></code> is the initial one. There must be one and only
-one initial state in a statemachine. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>final</strong> – Set <code class="docutils literal notranslate"><span class="pre">True</span></code> if represents a final state. A machine can have
-optionally many final states. Final states have no <span class="xref std std-ref">transition</span> starting from It.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>enter</strong> – One or more callbacks assigned to be executed when the state is entered.
-See <span class="xref std std-ref">actions</span>.</p></li>
-<li><p><strong>exit</strong> – One or more callbacks assigned to be executed when the state is exited.
-See <span class="xref std std-ref">actions</span>.</p></li>
-</ul>
-</dd>
-</dl>
-<p>State is a core component on how this library implements an expressive API to declare
-StateMachines.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statemachine</span> <span class="kn">import</span> <span class="n">State</span>
-</pre></div>
-</div>
-<p>Given a few states…</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Draft&quot;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">producing</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s2">&quot;Producing&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closed</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">final</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Transitions are declared using the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.to()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> (reversed) methods.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">producing</span><span class="p">)</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>The result is a <span class="xref std std-ref">TransitionList</span>.
-Don’t worry about this internal class.
-But the good thing is that it implements the <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator to combine transitions,
-so you can use the <code class="docutils literal notranslate"><span class="pre">|</span></code> syntax to compound a list of transitions and assign
-to the same event.</p>
-<p>You can declare all transitions for a state in one single line …</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span> <span class="o">|</span> <span class="n">producing</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>… and you can append additional transitions for a state to previous definitions.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">|=</span> <span class="n">closed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Draft&#39;)]</span>
-</pre></div>
-</div>
-<p>There are handy shortcuts that you can use to express this same set of transitions.</p>
-<p>The first one, <code class="docutils literal notranslate"><span class="pre">draft.to(draft)</span></code>, is also called a <span class="xref std std-ref">self-transition</span>, and can be
-expressed using an alternative syntax:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">itself</span><span class="p">()</span>
-<span class="go">TransitionList([Transition(State(&#39;Draft&#39;, ...</span>
-</pre></div>
-</div>
-<p>You can even pass a list of target states to declare at once all transitions starting
-from the same state.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">draft</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Draft&#39;), (&#39;Draft&#39;, &#39;Producing&#39;), (&#39;Draft&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-<p>Sometimes it’s easier to use the <code class="xref py py-func docutils literal notranslate"><span class="pre">State.from_()</span></code> method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transitions</span> <span class="o">=</span> <span class="n">closed</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">draft</span><span class="p">,</span> <span class="n">producing</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">t</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transitions</span><span class="p">]</span>
-<span class="go">[(&#39;Draft&#39;, &#39;Closed&#39;), (&#39;Producing&#39;, &#39;Closed&#39;), (&#39;Closed&#39;, &#39;Closed&#39;)]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nordigen_cli.apiclient.state.NordigenClientState.token_validate">
-<span class="sig-name descname"><span class="pre">token_validate</span></span><a class="headerlink" href="#nordigen_cli.apiclient.state.NordigenClientState.token_validate" title="Link to this definition"></a></dt>
-<dd><p>An event is triggers a signal that something has happened.</p>
-<p>They are send to a state machine and allow the state machine to react.</p>
-<p>An event starts a <span class="xref std std-ref">Transition</span>, which can be thought of as a “cause” that initiates a
-change in the state of the system.</p>
-<p>See also <span class="xref std std-ref">events</span>.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
 <section id="module-nordigen_cli.apiclient">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nordigen_cli.apiclient" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2><span class="section-number">3.1.1.1.7. </span>Module contents<a class="headerlink" href="#module-nordigen_cli.apiclient" title="Link to this heading"></a></h2>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nordigen_cli.html" class="btn btn-neutral float-left" title="3.1. nordigen_cli package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nordigen_cli.commands.html" class="btn btn-neutral float-right" title="3.1.1.2. nordigen_cli.commands package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

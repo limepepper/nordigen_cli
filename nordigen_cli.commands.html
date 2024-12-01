@@ -6,9 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nordigen_cli.commands package &mdash; Nordigen Cli 0.1.0 documentation</title>
+  <title>3.1.1.2. nordigen_cli.commands package &mdash; Nordigen Cli 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,9 +17,12 @@
       <script src="_static/documentation_options.js?v=01f34227"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/tabs.js?v=3ee01567"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.1.1.3. nordigen_cli.formatters package" href="nordigen_cli.formatters.html" />
+    <link rel="prev" title="3.1.1.1. nordigen_cli.apiclient package" href="nordigen_cli.apiclient.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,64 +44,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">nordigen_cli.commands package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.accounts">nordigen_cli.commands.accounts module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.accounts.show_account"><code class="docutils literal notranslate"><span class="pre">show_account()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.accounts.show_account_balances"><code class="docutils literal notranslate"><span class="pre">show_account_balances()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.accounts.show_account_details"><code class="docutils literal notranslate"><span class="pre">show_account_details()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.accounts.show_account_transaction"><code class="docutils literal notranslate"><span class="pre">show_account_transaction()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.agreements">nordigen_cli.commands.agreements module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.agreements.accept_agreement"><code class="docutils literal notranslate"><span class="pre">accept_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.agreements.agreements_list"><code class="docutils literal notranslate"><span class="pre">agreements_list()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.agreements.create_agreement"><code class="docutils literal notranslate"><span class="pre">create_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.agreements.delete_agreement"><code class="docutils literal notranslate"><span class="pre">delete_agreement()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.agreements.show_agreement"><code class="docutils literal notranslate"><span class="pre">show_agreement()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.approvals">nordigen_cli.commands.approvals module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.approvals.create_approval"><code class="docutils literal notranslate"><span class="pre">create_approval()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.banks">nordigen_cli.commands.banks module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.banks.list_banks"><code class="docutils literal notranslate"><span class="pre">list_banks()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.banks.show_bank"><code class="docutils literal notranslate"><span class="pre">show_bank()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.callbacks">nordigen_cli.commands.callbacks module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.callbacks.id_callback"><code class="docutils literal notranslate"><span class="pre">id_callback()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.callbacks.key_callback"><code class="docutils literal notranslate"><span class="pre">key_callback()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.client">nordigen_cli.commands.client module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.client.client_show"><code class="docutils literal notranslate"><span class="pre">client_show()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.client.get_client"><code class="docutils literal notranslate"><span class="pre">get_client()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.client.init_dirs"><code class="docutils literal notranslate"><span class="pre">init_dirs()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.config">nordigen_cli.commands.config module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.config.config_dump"><code class="docutils literal notranslate"><span class="pre">config_dump()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.config.config_init"><code class="docutils literal notranslate"><span class="pre">config_init()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.config.config_reset"><code class="docutils literal notranslate"><span class="pre">config_reset()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.config.config_show_tokens"><code class="docutils literal notranslate"><span class="pre">config_show_tokens()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands.requisitions">nordigen_cli.commands.requisitions module</a><ul>
-<li><a class="reference internal" href="#nordigen_cli.commands.requisitions.create_requisition"><code class="docutils literal notranslate"><span class="pre">create_requisition()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.requisitions.delete_requisition"><code class="docutils literal notranslate"><span class="pre">delete_requisition()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.requisitions.list_requisitions"><code class="docutils literal notranslate"><span class="pre">list_requisitions()</span></code></a></li>
-<li><a class="reference internal" href="#nordigen_cli.commands.requisitions.show_requisition"><code class="docutils literal notranslate"><span class="pre">show_requisition()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-nordigen_cli.commands">Module contents</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">3. nordigen_cli</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nordigen_cli.html">3.1. nordigen_cli package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.apiclient.html">3.1.1.1. nordigen_cli.apiclient package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.1.1.2. nordigen_cli.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.formatters.html">3.1.1.3. nordigen_cli.formatters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nordigen_cli.models.html">3.1.1.4. nordigen_cli.models package</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">4. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">5. License</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -112,7 +76,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">nordigen_cli.commands package</li>
+          <li class="breadcrumb-item"><a href="modules.html"><span class="section-number">3. </span>nordigen_cli</a></li>
+          <li class="breadcrumb-item"><a href="nordigen_cli.html"><span class="section-number">3.1. </span>nordigen_cli package</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1.1.2. </span>nordigen_cli.commands package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nordigen_cli.commands.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -123,12 +89,12 @@
            <div itemprop="articleBody">
              
   <section id="nordigen-cli-commands-package">
-<h1>nordigen_cli.commands package<a class="headerlink" href="#nordigen-cli-commands-package" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3.1.1.2. </span>nordigen_cli.commands package<a class="headerlink" href="#nordigen-cli-commands-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1.1.2.1. </span>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-nordigen_cli.commands.accounts">
-<span id="nordigen-cli-commands-accounts-module"></span><h2>nordigen_cli.commands.accounts module<a class="headerlink" href="#module-nordigen_cli.commands.accounts" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-accounts-module"></span><h2><span class="section-number">3.1.1.2.2. </span>nordigen_cli.commands.accounts module<a class="headerlink" href="#module-nordigen_cli.commands.accounts" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.accounts.show_account">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.accounts.</span></span><span class="sig-name descname"><span class="pre">show_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/accounts.html#show_account"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.accounts.show_account" title="Link to this definition"></a></dt>
@@ -168,7 +134,7 @@
 
 </section>
 <section id="module-nordigen_cli.commands.agreements">
-<span id="nordigen-cli-commands-agreements-module"></span><h2>nordigen_cli.commands.agreements module<a class="headerlink" href="#module-nordigen_cli.commands.agreements" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-agreements-module"></span><h2><span class="section-number">3.1.1.2.3. </span>nordigen_cli.commands.agreements module<a class="headerlink" href="#module-nordigen_cli.commands.agreements" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.agreements.accept_agreement">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.agreements.</span></span><span class="sig-name descname"><span class="pre">accept_agreement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agreement_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_agent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/agreements.html#accept_agreement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.agreements.accept_agreement" title="Link to this definition"></a></dt>
@@ -201,16 +167,16 @@
 
 </section>
 <section id="module-nordigen_cli.commands.approvals">
-<span id="nordigen-cli-commands-approvals-module"></span><h2>nordigen_cli.commands.approvals module<a class="headerlink" href="#module-nordigen_cli.commands.approvals" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-approvals-module"></span><h2><span class="section-number">3.1.1.2.4. </span>nordigen_cli.commands.approvals module<a class="headerlink" href="#module-nordigen_cli.commands.approvals" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.approvals.create_approval">
-<span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.approvals.</span></span><span class="sig-name descname"><span class="pre">create_approval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx:</span> <span class="pre">~typer.models.Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institution_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agreement:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f40279d1f40&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_language:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f40279d1fd0&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssn:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f40279d2060&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_selection:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_immediate:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/nordigen_cli/commands/approvals.html#create_approval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.approvals.create_approval" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.approvals.</span></span><span class="sig-name descname"><span class="pre">create_approval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx:</span> <span class="pre">~typer.models.Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institution_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agreement:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fb0c011df10&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_language:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fb0c0f32f60&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssn:</span> <span class="pre">~typing.Annotated[str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;typer.models.ArgumentInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fb0c011dfa0&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_selection:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_immediate:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/nordigen_cli/commands/approvals.html#create_approval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.approvals.create_approval" title="Link to this definition"></a></dt>
 <dd><p>Create an approval flow (by bank ID and reference)</p>
 </dd></dl>
 
 </section>
 <section id="module-nordigen_cli.commands.banks">
-<span id="nordigen-cli-commands-banks-module"></span><h2>nordigen_cli.commands.banks module<a class="headerlink" href="#module-nordigen_cli.commands.banks" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-banks-module"></span><h2><span class="section-number">3.1.1.2.5. </span>nordigen_cli.commands.banks module<a class="headerlink" href="#module-nordigen_cli.commands.banks" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.banks.list_banks">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.banks.</span></span><span class="sig-name descname"><span class="pre">list_banks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/banks.html#list_banks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.banks.list_banks" title="Link to this definition"></a></dt>
@@ -226,7 +192,7 @@
 
 </section>
 <section id="module-nordigen_cli.commands.callbacks">
-<span id="nordigen-cli-commands-callbacks-module"></span><h2>nordigen_cli.commands.callbacks module<a class="headerlink" href="#module-nordigen_cli.commands.callbacks" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-callbacks-module"></span><h2><span class="section-number">3.1.1.2.6. </span>nordigen_cli.commands.callbacks module<a class="headerlink" href="#module-nordigen_cli.commands.callbacks" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.callbacks.id_callback">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.callbacks.</span></span><span class="sig-name descname"><span class="pre">id_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/callbacks.html#id_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.callbacks.id_callback" title="Link to this definition"></a></dt>
@@ -239,7 +205,7 @@
 
 </section>
 <section id="module-nordigen_cli.commands.client">
-<span id="nordigen-cli-commands-client-module"></span><h2>nordigen_cli.commands.client module<a class="headerlink" href="#module-nordigen_cli.commands.client" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-client-module"></span><h2><span class="section-number">3.1.1.2.7. </span>nordigen_cli.commands.client module<a class="headerlink" href="#module-nordigen_cli.commands.client" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.client.client_show">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.client.</span></span><span class="sig-name descname"><span class="pre">client_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/nordigen_cli/commands/client.html#client_show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.client.client_show" title="Link to this definition"></a></dt>
@@ -258,7 +224,7 @@
 
 </section>
 <section id="module-nordigen_cli.commands.config">
-<span id="nordigen-cli-commands-config-module"></span><h2>nordigen_cli.commands.config module<a class="headerlink" href="#module-nordigen_cli.commands.config" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-config-module"></span><h2><span class="section-number">3.1.1.2.8. </span>nordigen_cli.commands.config module<a class="headerlink" href="#module-nordigen_cli.commands.config" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.config.config_dump">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.config.</span></span><span class="sig-name descname"><span class="pre">config_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/nordigen_cli/commands/config.html#config_dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.config.config_dump" title="Link to this definition"></a></dt>
@@ -274,7 +240,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.config.config_reset">
-<span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.config.</span></span><span class="sig-name descname"><span class="pre">config_reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">confirm:</span> <span class="pre">~typing.Annotated[bool,</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7f4027587440&gt;]</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/config.html#config_reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.config.config_reset" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.config.</span></span><span class="sig-name descname"><span class="pre">config_reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">confirm:</span> <span class="pre">~typing.Annotated[bool,</span> <span class="pre">&lt;typer.models.OptionInfo</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fb0c0f31640&gt;]</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/config.html#config_reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.config.config_reset" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -284,7 +250,7 @@
 
 </section>
 <section id="module-nordigen_cli.commands.requisitions">
-<span id="nordigen-cli-commands-requisitions-module"></span><h2>nordigen_cli.commands.requisitions module<a class="headerlink" href="#module-nordigen_cli.commands.requisitions" title="Link to this heading"></a></h2>
+<span id="nordigen-cli-commands-requisitions-module"></span><h2><span class="section-number">3.1.1.2.9. </span>nordigen_cli.commands.requisitions module<a class="headerlink" href="#module-nordigen_cli.commands.requisitions" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="nordigen_cli.commands.requisitions.create_requisition">
 <span class="sig-prename descclassname"><span class="pre">nordigen_cli.commands.requisitions.</span></span><span class="sig-name descname"><span class="pre">create_requisition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institution_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agreement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_immediate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nordigen_cli/commands/requisitions.html#create_requisition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nordigen_cli.commands.requisitions.create_requisition" title="Link to this definition"></a></dt>
@@ -311,14 +277,17 @@
 
 </section>
 <section id="module-nordigen_cli.commands">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nordigen_cli.commands" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2><span class="section-number">3.1.1.2.10. </span>Module contents<a class="headerlink" href="#module-nordigen_cli.commands" title="Link to this heading"></a></h2>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nordigen_cli.apiclient.html" class="btn btn-neutral float-left" title="3.1.1.1. nordigen_cli.apiclient package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nordigen_cli.formatters.html" class="btn btn-neutral float-right" title="3.1.1.3. nordigen_cli.formatters package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

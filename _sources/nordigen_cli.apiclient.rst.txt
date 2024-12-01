@@ -44,22 +44,6 @@ nordigen\_cli.apiclient.errors module
    :undoc-members:
    :show-inheritance:
 
-nordigen\_cli.apiclient.paginator module
-----------------------------------------
-
-.. automodule:: nordigen_cli.apiclient.paginator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-nordigen\_cli.apiclient.state module
-------------------------------------
-
-.. automodule:: nordigen_cli.apiclient.state
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

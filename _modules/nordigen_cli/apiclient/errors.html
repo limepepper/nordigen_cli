@@ -8,6 +8,7 @@
   <title>nordigen_cli.apiclient.errors &mdash; Nordigen Cli 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -15,6 +16,7 @@
       <script src="../../../_static/documentation_options.js?v=01f34227"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -39,8 +41,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">3. nordigen_cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">4. Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">5. License</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -74,14 +83,28 @@
 <div class="viewcode-block" id="NordigenClientError">
 <a class="viewcode-back" href="../../../nordigen_cli.apiclient.html#nordigen_cli.apiclient.errors.NordigenClientError">[docs]</a>
 <span class="k">class</span> <span class="nc">NordigenClientError</span><span class="p">(</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    {</span>
-<span class="sd">      &quot;summary&quot;: &quot;Authentication failed&quot;,</span>
-<span class="sd">      &quot;detail&quot;: &quot;No active account found with the given credentials&quot;,</span>
-<span class="sd">      &quot;status_code&quot;: 401</span>
-<span class="sd">      &quot;type&quot;: null</span>
-<span class="sd">    }</span>
-<span class="sd">    # doesn&#39;t seem to pass type though</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Client error which has fields for ErrorResponse objects</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        response (Response): Response object</span>
+<span class="sd">        message (str): Error message</span>
+<span class="sd">        status_code (int): HTTP status code</span>
+<span class="sd">        info (dict): Raw data from response</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        doesn&#39;t seem to pass type though in any response</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        This is an example of the error response from the</span>
+<span class="sd">        Nordigen API::</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;summary&quot;: &quot;Authentication failed&quot;,</span>
+<span class="sd">                &quot;detail&quot;: &quot;No active account found with the given credentials&quot;,</span>
+<span class="sd">                &quot;status_code&quot;: 401</span>
+<span class="sd">                &quot;type&quot;: null</span>
+<span class="sd">            }</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">response</span><span class="p">:</span> <span class="n">Response</span>
