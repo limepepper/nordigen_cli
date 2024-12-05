@@ -28,7 +28,6 @@ from nordigen_cli.models.model import (
 )
 
 
-# @factory.Faker.override_default_locale("en_US")
 class StringAmountProvider(Provider):
     def string_amount(self, *args, **kwargs):
         return str(self.pydecimal(left_digits=3, right_digits=2, positive=True))

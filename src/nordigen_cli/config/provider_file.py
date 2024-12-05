@@ -22,7 +22,7 @@ class FileConfigProvider(ConfigProvider):
         if self.config_file.exists():
             self.data.update(self._load_file(self.config_file))
         else:
-            logger.debug(f"Config file not found: {self.config_file}")
+            logger.warning(f"Config file not found: {self.config_file}")
 
     def _load_file(self, path: Path) -> Dict[str, Any]:
         import json

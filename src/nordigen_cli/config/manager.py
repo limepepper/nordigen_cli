@@ -29,19 +29,13 @@ class ConfigManager(ConfigManagerBase):
         self._providers: List[ProviderEntry] = []
         self._cache = cache_strategy or NoCache()
 
-        # Bootstrap with core config (config_dir and active_profile)
+        # Bootstrap with core config
         self._bootstrap()
 
     def _bootstrap(self) -> None:
         """Initialize core configuration"""
         # Start with environment vars for core config
         # bootstrap_provider = BootstrapConfigProvider(self.context)
-
-        # # Update context with any overrides from environment
-        # if config_dir := bootstrap_provider.get("config_dir"):
-        #     self.context.config_dir = Path(config_dir)
-        # if profile := bootstrap_provider.get("active_profile"):
-        #     self.context.active_profile = profile
 
     def register(self, provider: ConfigProvider, priority: int) -> "ConfigManager":
         entry = ProviderEntry(provider=provider, priority=priority)
