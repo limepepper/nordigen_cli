@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta, timezone, UTC
+from datetime import UTC, datetime, timedelta
 
 import pytest
 
-from nordigen_cli.models.token import Token
+from nordigen_cli.models.model import SpectacularJWTObtain
 
 example_token = """
 {
@@ -14,12 +14,6 @@ example_token = """
 """
 
 
-def test_token():
-    print("")
-    token = Token.model_validate_json(example_token)
-    print(repr(token))
-
-
 class TestToken:
     def test_token_creation(self):
         access_token = "access_token_123"
@@ -27,7 +21,7 @@ class TestToken:
         access_expires = int((datetime.now(tz=UTC) + timedelta(hours=1)).timestamp())
         refresh_expires = int((datetime.now(tz=UTC) + timedelta(days=30)).timestamp())
 
-        token = Token(
+        token = SpectacularJWTObtain(
             access=access_token,
             access_expires=access_expires,
             refresh=refresh_token,
@@ -41,7 +35,7 @@ class TestToken:
 
     def test_token_creation_with_invalid_access_token(self):
         with pytest.raises(ValueError):
-            Token(
+            SpectacularJWTObtain(
                 access=123,  # Invalid type
                 access_expires=int(datetime.now(tz=UTC).timestamp()),  # Corrected
                 refresh="valid_refresh",
@@ -50,7 +44,7 @@ class TestToken:
 
     def test_token_creation_with_invalid_refresh_token(self):
         with pytest.raises(ValueError):
-            Token(
+            SpectacularJWTObtain(
                 access="valid_access",
                 access_expires=int(datetime.now(tz=UTC).timestamp()),  # Corrected
                 refresh=456,  # Invalid type
@@ -59,7 +53,7 @@ class TestToken:
 
     def test_token_creation_with_invalid_access_expires(self):
         with pytest.raises(ValueError):
-            Token(
+            SpectacularJWTObtain(
                 access="valid_access",
                 access_expires="invalid",  # Invalid type
                 refresh="valid_refresh",
@@ -68,7 +62,7 @@ class TestToken:
 
     def test_token_creation_with_invalid_refresh_expires(self):
         with pytest.raises(ValueError):
-            Token(
+            SpectacularJWTObtain(
                 access="valid_access",
                 access_expires=int(datetime.now(tz=UTC).timestamp()),
                 refresh="valid_refresh",

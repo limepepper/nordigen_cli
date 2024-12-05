@@ -1,0 +1,129 @@
+[tool.poetry]
+name = "nordigen-cli"
+version = "0.1.0"
+description = "Simple cli for GoCardless Opening Banking data API"
+authors = ["Tom Hodder <tom@limepepper.co.uk>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/limepepper/nordigen_cli"
+repository = "https://github.com/limepepper/nordigen_cli"
+documentation = "https://github.com/limepepper/nordigen_cli/wiki"
+
+keywords = ["packaging", "distribution", "cli-tool"]
+packages = [{ include = "nordigen_cli", from = "src" }]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+nordctl = "nordigen_cli.nordigen_cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+typer = "^0.13.1"
+pydantic-settings = "^2.6.1"
+pycountry = "^24.6.1"
+loguru = "^0.7.2"
+pydantic = "^2.9.2"
+limepepper-utils = { version = "^0.1.0", extras = ["pyjwt", "typer"] }
+api-client = "^1.3.1"
+flask = "^3.1.0"
+
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+fastapi = { extras = ["standard"], version = "^0.115.5" }
+uvicorn = "^0.32.1"
+factory-boy = "^3.3.1"
+pyjwt = { extras = ["crypto"], version = "^2.10.0" }
+bcrypt = "^4.2.1"
+pytest-profiling = "^1.7.0"
+pytest-mock = "^3.14.0"
+ruff = "^0.8.1"
+pytest-factoryboy = "^2.7.0"
+mock = "^5.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+datamodel-code-generator = "^0.26.3"
+mypy = "^1.13.0"
+api-client = { path = "../../../../git/api-client", develop = true }
+limepepper-utils = { path = "../limepepper_utils", develop = true, extras = ["jwt"] }
+requests-debugger = { path = "../requests_debugger", develop = true }
+vcrpy = "^6.0.2"
+python-statemachine = { extras = ["diagrams"], version = "^2.4.0" }
+pydot = "^3.0.2"
+sqlmodel = "^0.0.22"
+api-client-pydantic = "^3.0.1"
+sphinx = "^8.1.3"
+sphinx-rtd-theme = "^3.0.2"
+sphinxcontrib-mermaid = "^1.0.0"
+sphinx-pydantic = "^0.1.1"
+colorama = "^0.4.6"
+
+
+[tool.poetry.group.docs.dependencies]
+sphinx-autobuild = "^2024.10.3"
+mkdocs-typer = "^0.0.3"
+sphinxcontrib-typer = { version = "^0.5.1", extras = ["png", "html"] }
+sphinx-inline-tabs = "^2023.4.21"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "mocks"]
+testpaths = ["tests"]
+log_cli_level = "INFO"
+addopts = "-rP"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+norecursedirs = [".*'", "local", "venv", "node_modules", "build", "dist", "docs", "fixtures"]
+# action:message:category:module:line (action is mandatory)
+filterwarnings = [
+    "ignore::DeprecationWarning:coreapi.*:",
+    "ignore::DeprecationWarning:pkg_resources.*:",
+    "ignore::DeprecationWarning:rest_framework.*:",
+    "ignore::DeprecationWarning:reportlab.*:",
+    "ignore::DeprecationWarning:websockets.server.*:",
+    "ignore:websockets\\.server\\.WebSocketServerProtocol:DeprecationWarning",
+    "ignore:websockets\\.legacy:DeprecationWarning",
+    "ignore:crypt\\.crypt:DeprecationWarning",
+    "ignore::DeprecationWarning:passlib.utils.*"
+]
+# log_level = "WARNING"
+
+#[[tool.mypy.overrides]]
+#module = "your_module"
+#ignore_error_codes = ["attr-defined", "call-arg"]
+
+[tool.ruff]
+# Set the maximum line length to 79.
+line-length = 88
+
+[tool.ruff.lint]
+extend-select = [
+    "E", # https://github.com/charliermarsh/ruff#pycodestylet
+    "F", # https://github.com/charliermarsh/ruff#pyflakes
+    "UP", # https://github.com/charliermarsh/ruff#pyupgrade
+    "N", # https://github.com/charliermarsh/ruff#pep8-naming
+    "S", # https://github.com/charliermarsh/ruff#flake8-bandit
+    "C", # https://github.com/charliermarsh/ruff#flake8-comprehensions
+    "B", # https://github.com/charliermarsh/ruff#flake8-bugbear
+    "T", # https://github.com/charliermarsh/ruff#flake8-print
+    "I",
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = [
+    "S101", "ARG", "FBT", "PLR2004", "S311", "S105", "S106", "E501"
+]
+"src/nordigen_cli/models/renderable.py" = ["N815"]
+"src/nordigen_cli/models/model.py" = ["N815", "E501"]
+"mocks/factories.py" = ["N815"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+#[tool.ruff.lint]
+#select = [

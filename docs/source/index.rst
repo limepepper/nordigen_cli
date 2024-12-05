@@ -1,0 +1,67 @@
+==================
+Nordigen Cli guide
+==================
+
+
+
+.. _quick-reference:
+
+Quick reference
+---------------
+
+1. Quick start
+
+install package from pypi using the usual methods
+
+.. typer:: nordigen_cli.nordigen_cli.cli
+    :prog: nordigen-cli
+    :width: 70
+    :preferred: html
+    :theme: dimmed_monokai
+
+
+
+
+2. Configuration
+
+   .. tab:: Unix
+
+      .. code-block:: shell
+
+         pip install nordigen_cli
+
+   .. tab:: macOS
+
+      .. code-block:: shell
+
+         pip install nordigen_cli
+
+   .. tab:: Windows
+
+      .. code-block:: dosbatch
+
+         pip install nordigen_cli
+
+
+
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents:
+    :numbered:
+    :titlesonly:
+
+    intro
+    installation
+    commands
+    modules
+    contributing 
+    
+    license
+
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

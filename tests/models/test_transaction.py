@@ -1,7 +1,6 @@
-from rich import inspect
+from rich.console import Console
 
-from nordigen_cli.models.model import BankTransaction
-from nordigen_cli.models.shim import BankTransactionResponse
+from nordigen_cli.models.model import AccountTransactions, BankTransaction
 
 example_data = """
 {
@@ -47,20 +46,20 @@ example_data = """
   }
 }
 """
-from rich.console import Console
-from rich import print as rprint
 
 console = Console(force_terminal=True)
-from rich.pretty import pprint
 
 
 class TestTransaction:
-
     def test_from_json(self):
-        transactions = BankTransactionResponse.model_validate_json(
+        transactions = AccountTransactions.model_validate_json(
             example_data
         ).transactions
-        pprint(transactions)
-        console.print(transactions)
+        assert isinstance(transactions, BankTransaction)
+        # pprint(transactions)
+        # print(f"{transactions!r}")
+        # console.print(transactions)
+        # for name, field_repr in transactions.__repr_args__():
+        #     console.print(name, field_repr)
         # rprint(transactions)
         # inspect(transactions, all=True)

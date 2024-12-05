@@ -1,0 +1,162 @@
+{
+  "count": 9,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "37ba181b-380a-4b1b-8bf4-131bc527d892",
+      "created": "2024-11-15T13:32:16.690513Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "LN",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "e72d979d-a3a3-48b4-9e20-3862c71bbfd3",
+      "reference": "tomtfw223",
+      "accounts": [
+        "3d8e6772-25d8-498e-80a0-7212877cc8a4",
+        "a1ff00e4-1799-41d9-b4a8-6b1936f48707"
+      ],
+      "user_language": "EN",
+      "link": "https://ob.gocardless.com/ob-psd2/start/064d192e-ad44-4398-8cf8-63a163d1afe7/SANDBOXFINANCE_SFIN0000",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "af206111-25ed-4637-a160-c53e5d241269",
+      "created": "2024-11-15T13:31:13.749756Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "LN",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "a452f26e-3ea5-44b4-9fdc-b81c2ec46a47",
+      "reference": "tomtfw22",
+      "accounts": [
+        "3d8e6772-25d8-498e-80a0-7212877cc8a4",
+        "a1ff00e4-1799-41d9-b4a8-6b1936f48707"
+      ],
+      "user_language": "EN",
+      "link": "https://ob.gocardless.com/ob-psd2/start/403c9cd1-3146-4e9e-b89c-6609b8e4849b/SANDBOXFINANCE_SFIN0000",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "17823804-f7a4-4464-b88d-34bfff6645e8",
+      "created": "2024-11-15T05:18:43.801053Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "LN",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "66dbf129-30fa-4014-8bc4-c9628ca4d1bf",
+      "reference": "tomtest1",
+      "accounts": [
+        "3d8e6772-25d8-498e-80a0-7212877cc8a4",
+        "a1ff00e4-1799-41d9-b4a8-6b1936f48707"
+      ],
+      "user_language": "EN",
+      "link": "https://ob.gocardless.com/ob-psd2/start/6744f1d3-1c0d-44ca-b233-49501cb254e0/SANDBOXFINANCE_SFIN0000",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "4a1d1f90-f8f7-48a1-b838-b648a6a24a2d",
+      "created": "2024-11-15T05:16:29.671758Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "CR",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "",
+      "reference": "tommytest123c13",
+      "accounts": [],
+      "user_language": "EN",
+      "link": "",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "06a910e0-ac3d-418a-9f9c-06ded51b3ca9",
+      "created": "2024-11-15T04:10:56.506025Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "LN",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "e7d60d5e-967f-4a68-9011-9a3291572192",
+      "reference": "tommytest123c",
+      "accounts": [
+        "3d8e6772-25d8-498e-80a0-7212877cc8a4",
+        "a1ff00e4-1799-41d9-b4a8-6b1936f48707"
+      ],
+      "user_language": "EN",
+      "link": "https://ob.gocardless.com/ob-psd2/start/d17d2c3b-44d9-44ab-a0aa-b9909f9301cd/SANDBOXFINANCE_SFIN0000",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "49024e1a-0292-4235-be59-17d03e74f68a",
+      "created": "2024-11-15T04:10:25.695681Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "CR",
+      "institution_id": "SANDBOXFINANCE_SFIN0000",
+      "agreement": "",
+      "reference": "tommytest123",
+      "accounts": [],
+      "user_language": "EN",
+      "link": "",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "d402c9d6-a120-4428-9f1f-1f46edd37eb0",
+      "created": "2021-10-14T21:18:48.359585Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "EX",
+      "institution_id": null,
+      "agreement": "2be6da06-6a50-430b-a88d-f2d0c1b20c63",
+      "reference": "ref_1634246328",
+      "accounts": [
+        "276bb71e-0df1-4600-a3c3-66128e7117a5",
+        "a67496a1-7bf1-4d07-b6cc-744ab22ce985"
+      ],
+      "user_language": "EN",
+      "link": "",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "3537cc8c-3331-4aaa-896f-43a6a130d97b",
+      "created": "2021-09-26T22:55:21.368325Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "EX",
+      "institution_id": null,
+      "agreement": "1b2afba9-c77e-4c48-bb28-bf3be77400f6",
+      "reference": "ref_1632696921",
+      "accounts": [
+        "32e588f4-5a01-482d-a7b9-f2e2e5dfad82"
+      ],
+      "user_language": "EN",
+      "link": "",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    },
+    {
+      "id": "5f725a37-75c2-4173-99f3-476de90de915",
+      "created": "2021-09-26T20:39:11.947974Z",
+      "redirect": "http://localhost:5000/redirect",
+      "status": "LN",
+      "institution_id": null,
+      "agreement": "6d5bbb57-c43c-41e1-a174-5ec80452b3ce",
+      "reference": "ref_1632688751",
+      "accounts": [
+        "1048f194-cb13-4cee-a55c-5ef6d8661341",
+        "582a6ea9-81c7-4def-952d-85709d9432cf"
+      ],
+      "user_language": "EN",
+      "link": "",
+      "ssn": null,
+      "account_selection": false,
+      "redirect_immediate": false
+    }
+  ]
+}
