@@ -1,0 +1,29 @@
+---
+
+scheme: devproject
+version: 0.1.0
+
+dupe:
+  exclude-dirs:
+    - .tox
+    - .cache
+    - __pycache__
+    - .git
+    - workdir
+    - dist
+    - build
+    - .eggs
+    - .mypy_cache
+    - .pytest_cache
+    - .venv
+    - venv
+    - docs/build
+
+watchers:
+  docs:
+    command: make docs-html
+    patterns:
+      - "**/*.rst"
+      - "**/*.md"
+
+

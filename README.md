@@ -1,4 +1,8 @@
-# a simple cli for nordigen open banking API
+# a simple cli for gocardless banking data API
+
+This was previously nordigen, but has since been acquired by gocardless, and there
+is a bunch of legacy naming that needs to be updated.
+
 
 ### command overview
 
@@ -32,9 +36,9 @@
       show-requisition-links     get approval links for requisition
       test-approval
 
-## You will first need to sign up with nordigen, and create a token:
+## You will first need to sign up with gocardless/nordigen, and create a token:
 
-https://nordigen.com/en/
+https://bankaccountdata.gocardless.com/user-secrets/
 
 
 ## install the package from github using the following syntax
@@ -47,7 +51,7 @@ export your nordigen private token as environment variable:
 
     $ export NORDIGEN_TOKEN=xxxxxxxx
 
-You can then list the banks that nordigen supports. There is a list [here](https://airtable.com/shrX4uBtNLnsPxSih/tblyRj2FTQoXq9Qmu) by country.
+You can then list the banks that GC Bank Account Data supports. There is a list [here](https://docs.google.com/spreadsheets/d/1EZ5n7QDGaRIot5M86dwqd5UFSGEDTeTRzEq3D9uEDkM/edit?gid=976380583#gid=976380583) by country.
 
 You need the country code. e.g. GB
 
@@ -62,7 +66,7 @@ You need the country code. e.g. GB
     ...
 
 
-or you can use Nordigens sandbox box, which has `aspsp_id` SANDBOXFINANCE_SFIN0000
+or you can use Nordigens sandbox box, which has `institution_id` SANDBOXFINANCE_SFIN0000
 
 The `aspsp_id` is referred to as `bank_id` by the nordctl for legacy reasons
 

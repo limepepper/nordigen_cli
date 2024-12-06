@@ -1,0 +1,29 @@
+---
+
+users:
+  - name: good_user
+    description: A good user
+    id: 6cbb24a6-28b9-441e-9184-3e93d6497594
+    key: "fc6584b0594a167e7aebe149d4a15bae642fa527618f9f5b82\
+    a26f38fe7663800412e52daf8502645a3685d544ab1a1b44da81fcb0\
+    de1d17e783e6574ef2aa46"
+    hashed_password: $2y$10$uiy/tSwUATKi1Qay4ZdMoe73ycdH83dp5WRv873ya7rXTqkVe4vO2
+    disabled: false
+
+  - name: good_user_disabled
+    description: A good user with disabled flag
+    id: 6cbb24a6-28b9-441e-9184-3e93d6497594
+    key: "fc6584b0594a167e7aebe149d4a15bae642fa527618f9f5b82\
+    a26f38fe7663800412e52daf8502645a3685d544ab1a1b44da81fcb0\
+    de1d17e783e6574ef2aa46"
+    hashed_password: $2y$10$uiy/tSwUATKi1Qay4ZdMoe73ycdH83dp5WRv873ya7rXTqkVe4vO2
+    disabled: true
+
+  - name: a_n_user
+    description: A good user with disabled flag
+    id: 6cbb24a6-28b9-441e-9184-3e93d6497594
+    key: "fa3316421e8d3574f3e3b2bd7e8849622dba0340cb77763259\
+    ddb15e9362973e90b39ce50dc8313c893eae2613f3298c57430f770d\
+    48e246d971a8643365c67d"
+    hashed_password: $2y$10$CHi0xDBKNfYnnOJcQqOLnO6MKqP47/opRAiL3PjG/wm1UIrRX07oS
+    disabled: true

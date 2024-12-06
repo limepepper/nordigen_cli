@@ -1,0 +1,9 @@
+log/
+dist/
+venv/
+node_modules/
+docs/
+uploads/
+workdir/
+.env
+.tox
